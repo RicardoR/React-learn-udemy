@@ -1,5 +1,4 @@
-const apiKey = 'nGMspUXmAOA6zW7UkZQNkl5YLSOUUMLX';
-const endPoint = 'api.giphy.com/v1/gifs/random';
+import { endPoint, apiKey } from '../data/giphy-data';
 
 const fetchRequest = fetch(`https://${endPoint}?api_key=${apiKey}`);
 

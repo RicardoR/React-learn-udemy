@@ -1,4 +1,4 @@
-import { endPoint, apiKey } from "./data/giphy-data";
+import { endPoint, apiKey } from '../data/giphy-data';
 
 const getImagePromise = () => Promise.resolve('image with promise');
 
