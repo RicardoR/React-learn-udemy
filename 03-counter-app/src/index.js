@@ -4,5 +4,8 @@ import RamonesApp from './RamonesApp';
 import './index.css';
 
 const rootDiv = document.querySelector('#root');
-
-ReactDOM.render( <RamonesApp />, rootDiv);
+const ramones = {
+  band: 'Ramones',
+  origin: 'Los Angeles, California',
+};
+ReactDOM.render( <RamonesApp {...ramones} />, rootDiv);
