@@ -5,6 +5,35 @@ html, body {
     display: flex;
     font-family: 'Roboto', sans-serif;
     font-size: 1.3rem;
-    height: 100vH;
+    min-height: 100%;
+    justify-content: center;
+    flex-direction: column;
+}
+
+body > div {
+    width: 100%;
+    text-align: center;
+}
+
+button {
+    background-color: blueviolet;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.3rem;
+    transition: all 0.2s ease-in-out;
+    margin-left: 8px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.counter-controls {
+    margin: auto;
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: center;
+    align-self: center;
     justify-content: center;
 }
