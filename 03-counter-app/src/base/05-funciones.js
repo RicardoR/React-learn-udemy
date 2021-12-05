@@ -1,0 +1,12 @@
+const getUser = () => ({
+        uid: 'ABC123',
+        username: 'El_Papi1502'
+});
+
+const getActiveUser = (nombre) => ({
+    uid: 'ABC567',
+    username: nombre
+});
+
+
+export { getUser, getActiveUser };
