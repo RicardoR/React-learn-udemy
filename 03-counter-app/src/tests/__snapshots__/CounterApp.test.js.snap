@@ -1,0 +1,211 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CounterApp /> should decrease the value when decreaseBtn is clicked 1`] = `
+<Fragment>
+  <h1>
+    CounterApp
+  </h1>
+  <button
+    id="resetBtn"
+    onClick={[Function]}
+  >
+    Reset
+  </button>
+  <div
+    className="counter-controls"
+  >
+    <button
+      id="decreaseBtn"
+      onClick={[Function]}
+    >
+      - 1
+    </button>
+    <p>
+       
+      5
+       
+    </p>
+    <button
+      id="increaseBtn"
+      onClick={[Function]}
+    >
+      + 1
+    </button>
+  </div>
+</Fragment>
+`;
+
+exports[`<CounterApp /> should display 5 as default value 1`] = `
+<Fragment>
+  <h1>
+    CounterApp
+  </h1>
+  <button
+    id="resetBtn"
+    onClick={[Function]}
+  >
+    Reset
+  </button>
+  <div
+    className="counter-controls"
+  >
+    <button
+      id="decreaseBtn"
+      onClick={[Function]}
+    >
+      - 1
+    </button>
+    <p>
+       
+      5
+       
+    </p>
+    <button
+      id="increaseBtn"
+      onClick={[Function]}
+    >
+      + 1
+    </button>
+  </div>
+</Fragment>
+`;
+
+exports[`<CounterApp /> should display the value passed to the component 1`] = `
+<Fragment>
+  <h1>
+    CounterApp
+  </h1>
+  <button
+    id="resetBtn"
+    onClick={[Function]}
+  >
+    Reset
+  </button>
+  <div
+    className="counter-controls"
+  >
+    <button
+      id="decreaseBtn"
+      onClick={[Function]}
+    >
+      - 1
+    </button>
+    <p>
+       
+      5
+       
+    </p>
+    <button
+      id="increaseBtn"
+      onClick={[Function]}
+    >
+      + 1
+    </button>
+  </div>
+</Fragment>
+`;
+
+exports[`<CounterApp /> should display the value passed to the component 2`] = `
+<Fragment>
+  <h1>
+    CounterApp
+  </h1>
+  <button
+    id="resetBtn"
+    onClick={[Function]}
+  >
+    Reset
+  </button>
+  <div
+    className="counter-controls"
+  >
+    <button
+      id="decreaseBtn"
+      onClick={[Function]}
+    >
+      - 1
+    </button>
+    <p>
+       
+      10
+       
+    </p>
+    <button
+      id="increaseBtn"
+      onClick={[Function]}
+    >
+      + 1
+    </button>
+  </div>
+</Fragment>
+`;
+
+exports[`<CounterApp /> should increase the value when increaseBtn is clicked 1`] = `
+<Fragment>
+  <h1>
+    CounterApp
+  </h1>
+  <button
+    id="resetBtn"
+    onClick={[Function]}
+  >
+    Reset
+  </button>
+  <div
+    className="counter-controls"
+  >
+    <button
+      id="decreaseBtn"
+      onClick={[Function]}
+    >
+      - 1
+    </button>
+    <p>
+       
+      5
+       
+    </p>
+    <button
+      id="increaseBtn"
+      onClick={[Function]}
+    >
+      + 1
+    </button>
+  </div>
+</Fragment>
+`;
+
+exports[`<CounterApp /> should reset de value when resetBtn is clicked 1`] = `
+<Fragment>
+  <h1>
+    CounterApp
+  </h1>
+  <button
+    id="resetBtn"
+    onClick={[Function]}
+  >
+    Reset
+  </button>
+  <div
+    className="counter-controls"
+  >
+    <button
+      id="decreaseBtn"
+      onClick={[Function]}
+    >
+      - 1
+    </button>
+    <p>
+       
+      5
+       
+    </p>
+    <button
+      id="increaseBtn"
+      onClick={[Function]}
+    >
+      + 1
+    </button>
+  </div>
+</Fragment>
+`;

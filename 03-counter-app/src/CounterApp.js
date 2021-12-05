@@ -13,11 +13,11 @@ const CounterApp = ({ value }) => {
   return (
     <Fragment>
       <h1>CounterApp</h1>
-      <button onClick={reset}>Reset</button>
+      <button id='resetBtn' onClick={reset}>Reset</button>
       <div className="counter-controls">
-        <button onClick={decrease}>- 1</button>
+        <button id='decreaseBtn' onClick={decrease}>- 1</button>
         <p> {counter} </p>
-        <button onClick={increase}>+ 1</button>
+        <button id='increaseBtn' onClick={increase}>+ 1</button>
       </div>
     </Fragment>
   );
