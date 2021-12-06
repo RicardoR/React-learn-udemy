@@ -1,4 +1,4 @@
-import { endPoint, apiKey } from '../../../secret/giphy-data';
+import { giphyRandomEndpoint, apiKey } from '../../../secret/giphy-data';
 
 const getImagePromise = () => Promise.resolve('image with promise');
 
@@ -8,7 +8,9 @@ getImagePromise().then(image => {
 
 const getImageAsync = async () => {
     try {
-        const fetchRequest = await fetch(`${endPoint}?api_key=${apiKey}`);
+        const fetchRequest = await fetch(
+          `${giphyRandomEndpoint}?api_key=${apiKey}`
+        );
         const { data } = await fetchRequest.json();
         return data.images.original.url;
     } catch (error) {

@@ -1,6 +1,6 @@
-import { endPoint, apiKey } from '../data/giphy-data';
+import { giphyRandomEndpoint, apiKey } from '../data/giphy-data';
 
-const fetchRequest = fetch(`https://${endPoint}?api_key=${apiKey}`);
+const fetchRequest = fetch(`${giphyRandomEndpoint}?api_key=${apiKey}`);
 
 fetchRequest
     .then(response => response.json())
