@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GifGridItem /> should have a card element 1`] = `
+<div
+  className="card"
+>
+  <img />
+  <p />
+</div>
+`;
