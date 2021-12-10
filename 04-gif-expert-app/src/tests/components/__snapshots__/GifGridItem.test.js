@@ -16,7 +16,8 @@ describe('<GifGridItem />', () => {
   });
 
   test('should have a card element', () => {
-    expect(wrapper.find('.card')).toBeTruthy();
+    const div = wrapper.find('div').first();
+    expect(div.props().className.includes('card')).toBe(true);
   });
 
   test('should have a title with the prop title', () => {
