@@ -5,9 +5,13 @@ import { GifGridItem } from '../../../components/GifGridItem';
 
 describe('<GifGridItem />', () => {
   let wrapper;
+  const props = {
+    title: 'Title',
+    url: 'https://localhost/image.jpg',
+  }
 
   beforeEach(() => {
-    wrapper = shallow(<GifGridItem />);
+    wrapper = shallow(<GifGridItem {...props} />);
     expect(wrapper).toMatchSnapshot();
   });
 

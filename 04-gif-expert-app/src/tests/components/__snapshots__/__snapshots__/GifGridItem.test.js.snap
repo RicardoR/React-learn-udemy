@@ -4,7 +4,12 @@ exports[`<GifGridItem /> should have a card element 1`] = `
 <div
   className="card"
 >
-  <img />
-  <p />
+  <img
+    alt="Title"
+    src="https://localhost/image.jpg"
+  />
+  <p>
+    Title
+  </p>
 </div>
 `;
