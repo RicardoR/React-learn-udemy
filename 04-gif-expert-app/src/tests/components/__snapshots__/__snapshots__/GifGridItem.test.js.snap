@@ -5,11 +5,39 @@ exports[`<GifGridItem /> should have a card element 1`] = `
   className="card"
 >
   <img
-    alt="Title"
+    alt="The title"
     src="https://localhost/image.jpg"
   />
   <p>
-    Title
+    The title
+  </p>
+</div>
+`;
+
+exports[`<GifGridItem /> should have a title with the prop title 1`] = `
+<div
+  className="card"
+>
+  <img
+    alt="The title"
+    src="https://localhost/image.jpg"
+  />
+  <p>
+    The title
+  </p>
+</div>
+`;
+
+exports[`<GifGridItem /> should have an image with the props 1`] = `
+<div
+  className="card"
+>
+  <img
+    alt="The title"
+    src="https://localhost/image.jpg"
+  />
+  <p>
+    The title
   </p>
 </div>
 `;

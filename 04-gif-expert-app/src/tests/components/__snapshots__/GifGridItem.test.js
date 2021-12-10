@@ -6,7 +6,7 @@ import { GifGridItem } from '../../../components/GifGridItem';
 describe('<GifGridItem />', () => {
   let wrapper;
   const props = {
-    title: 'Title',
+    title: 'The title',
     url: 'https://localhost/image.jpg',
   }
 
@@ -17,5 +17,15 @@ describe('<GifGridItem />', () => {
 
   test('should have a card element', () => {
     expect(wrapper.find('.card')).toBeTruthy();
+  });
+
+  test('should have a title with the prop title', () => {
+    expect(wrapper.find('p').text().trim()).toBe(props.title);
+  });
+
+  test('should have an image with the props', () => {
+    const img = wrapper.find('img');
+    expect(img.prop('src')).toBe(props.url);
+    expect(img.prop('alt')).toBe(props.title);
   });
 });
