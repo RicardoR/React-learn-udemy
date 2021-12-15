@@ -28,4 +28,13 @@ describe('<AddCategory />', () => {
         wrapper.find('form').simulate('submit', { preventDefault() { } });
         expect(setCategories).not.toHaveBeenCalled();
     });
+
+    test('should post the info on submith', () => {
+        const category = 'Avengers';
+        wrapper.find('input').simulate('change', { target: { value: category } });
+        wrapper.find('form').simulate('submit', { preventDefault() { } });
+        expect(setCategories).toHaveBeenCalled();
+        expect(setCategories).toHaveBeenCalledWith(expect.any(Function));
+        expect(wrapper.find('input').prop('value')).toBe('');
+     });
 });
