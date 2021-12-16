@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { shallow } from 'enzyme';
-import { AddCategory } from '../../../components/AddCategory';
+import { AddCategory } from '../../components/AddCategory';
 
 
 describe('<AddCategory />', () => {
