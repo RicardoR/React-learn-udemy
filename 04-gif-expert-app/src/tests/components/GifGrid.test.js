@@ -19,7 +19,7 @@ describe('<GifGrid />', () => {
     ];
 
     useFetchGifs.mockReturnValue({
-      loading: true,
+      loading: false,
       data: gifs,
     });
 
@@ -35,5 +35,9 @@ describe('<GifGrid />', () => {
 
     test('should display items when images are loaded', () => {
         expect(wrapper.find('GifGridItem').length).toBe(gifs.length);
+    });
+  
+    test('should not display the paragraph after loading data', () => {
+      expect(wrapper.find('p').exists()).toBe(false); 
     });
 });

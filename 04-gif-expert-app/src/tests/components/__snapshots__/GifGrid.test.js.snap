@@ -5,11 +5,6 @@ exports[`<GifGrid /> should create 1`] = `
   <h3>
     Avengers
   </h3>
-  <p
-    className="animate__animated animate__flash"
-  >
-    Loading...
-  </p>
   <div
     className="card-grid"
   >
