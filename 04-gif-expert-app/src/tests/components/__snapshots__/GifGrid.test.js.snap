@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GifGrid /> should create 1`] = `
+<Fragment>
+  <h3>
+    Avengers
+  </h3>
+  <p
+    className="animate__animated animate__flash"
+  >
+    Loading...
+  </p>
+  <div
+    className="card-grid"
+  >
+    <GifGridItem
+      id="wertret56456456"
+      key="wertret56456456"
+      title="Avengers"
+      url="https://localhost/avengers.jpg"
+    />
+  </div>
+</Fragment>
+`;
