@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { HookApp } from './HooksApp';
 
 ReactDOM.render(
-  <div>Hello!</div>,
+  <HookApp />,
   document.getElementById('root')
 );
