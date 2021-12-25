@@ -5,7 +5,7 @@ import './counter.css';
 
 export const CounterWithCustomHook = () => {
 
-    const {state: counter, increment, decrement, reset} = useCounter(50);
+    const {counter, increment, decrement, reset} = useCounter(50);
 
     return (
       <>
@@ -13,7 +13,7 @@ export const CounterWithCustomHook = () => {
         <hr />
 
         <button className="btn" onClick={() => increment(2)}>
-          +1
+          +2
         </button>
 
         <button className="btn" onClick={reset}>
