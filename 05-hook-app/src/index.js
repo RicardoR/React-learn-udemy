@@ -4,7 +4,7 @@ import { CounterWithCustomHook } from './components/01-useState/CounterWithCusto
 import { SimpleForm } from './components/02-useEffect/SimpleForm';
 import { FormWithCustomHook } from './components/02-useEffect/FormWithCustomHook';
 import { MultipleCustomHooks } from './components/03-examples/MultipleCustomHooks';
-
+import { FocusScreen } from './components/04-useRef/FocusScreen';
 
 ReactDOM.render(<CounterWithCustomHook />, document.getElementById('root'));
 ReactDOM.render(<SimpleForm />, document.getElementById('simple-form'));
@@ -13,3 +13,5 @@ ReactDOM.render(
   <MultipleCustomHooks />,
   document.getElementById('multiple-custom-hooks')
 );
+
+ReactDOM.render(<FocusScreen />, document.getElementById('focus-screen-hooks'));
