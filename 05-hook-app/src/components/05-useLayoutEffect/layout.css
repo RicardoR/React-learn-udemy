@@ -1,0 +1,11 @@
+body {
+    padding: 70px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.blockquote.custom {
+    display: flex;
+}

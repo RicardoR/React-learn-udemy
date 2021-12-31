@@ -5,6 +5,7 @@ import { SimpleForm } from './components/02-useEffect/SimpleForm';
 import { FormWithCustomHook } from './components/02-useEffect/FormWithCustomHook';
 import { MultipleCustomHooks } from './components/03-examples/MultipleCustomHooks';
 import { RealExample } from './components/04-useRef/RealExample';
+import { LayoutEffect } from './components/05-useLayoutEffect/LayoutEffect';
 
 ReactDOM.render(<CounterWithCustomHook />, document.getElementById('root'));
 ReactDOM.render(<SimpleForm />, document.getElementById('simple-form'));
@@ -13,5 +14,5 @@ ReactDOM.render(
   <MultipleCustomHooks />,
   document.getElementById('multiple-custom-hooks')
 );
-
 ReactDOM.render(<RealExample />, document.getElementById('focus-screen-hooks'));
+ReactDOM.render(<LayoutEffect />, document.getElementById('layout-effect-hooks'));
