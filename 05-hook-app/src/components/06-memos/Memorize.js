@@ -10,7 +10,7 @@ export const Memorize = () => {
     return (
         <>
             <h1>Counter: <Small value={counter}/></h1>
-            <hr />
+            <br />
             <button
                 className="btn btn-primary"
                 onClick={() => increment(1)}
