@@ -8,6 +8,7 @@ import { RealExample } from './components/04-useRef/RealExample';
 import { LayoutEffect } from './components/05-useLayoutEffect/LayoutEffect';
 import { Memorize } from './components/06-memos/Memorize';
 import { MemoHook } from './components/06-memos/MemoHook';
+import { CallbackHook } from './components/06-memos/CallbackHook';
 
 ReactDOM.render(<CounterWithCustomHook />, document.getElementById('root'));
 ReactDOM.render(<SimpleForm />, document.getElementById('simple-form'));
@@ -20,3 +21,4 @@ ReactDOM.render(<RealExample />, document.getElementById('focus-screen-hooks'));
 ReactDOM.render(<LayoutEffect />, document.getElementById('layout-effect-hooks'));
 ReactDOM.render(<Memorize />, document.getElementById('memorize-hooks'));
 ReactDOM.render(<MemoHook />, document.getElementById('memo-hooks'));
+ReactDOM.render(<CallbackHook />, document.getElementById('callback-hooks'));
