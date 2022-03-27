@@ -1,18 +1,19 @@
+import { ADD_TODO } from './useReducerConstants';
+
 const initialState = [
-    {
-        id: 1,
-        todo: 'Comprar pan',
-        done: false
-    }
+  {
+    id: 1,
+    todo: 'Comprar pan',
+    done: false,
+  },
 ];
 
 const todoReducer = (state = initialState, action) => {
-
-    if (action?.type === 'ADD_TODO') {
-        return [ ...state, action.payload];
-    }
-    return state;
-}
+  if (action?.type === ADD_TODO) {
+    return [...state, action.payload];
+  }
+  return state;
+};
 
 let todos = todoReducer();
 
@@ -23,10 +24,10 @@ const newTodo = {
 };
 
 const addTodoAction = {
-    type: 'ADD_TODO',
-    payload: newTodo
-}
+  type: ADD_TODO,
+  payload: newTodo,
+};
 
 todos = todoReducer(todos, addTodoAction);
 
-console.log(todos); 
+console.log(todos);
