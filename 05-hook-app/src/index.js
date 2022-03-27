@@ -10,7 +10,7 @@ import { Memorize } from './components/06-memos/Memorize';
 import { MemoHook } from './components/06-memos/MemoHook';
 import { CallbackHook } from './components/06-memos/CallbackHook';
 import { Padre } from './components/07-tarea-memo/Padre';
-import './components/08-useReducer/intro-reducer';
+import { TodoApp } from './components/08-useReducer/TodoApp';
 
 // ReactDOM.render(<CounterWithCustomHook />, document.getElementById('root'));
 // ReactDOM.render(<SimpleForm />, document.getElementById('simple-form'));
@@ -25,3 +25,5 @@ import './components/08-useReducer/intro-reducer';
 // ReactDOM.render(<MemoHook />, document.getElementById('memo-hooks'));
 // ReactDOM.render(<CallbackHook />, document.getElementById('callback-hooks'));
 // ReactDOM.render(<Padre />, document.getElementById('task-hooks'));
+
+ReactDOM.render(<TodoApp />, document.getElementById('use-reducer'));
