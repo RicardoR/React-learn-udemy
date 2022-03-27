@@ -1,7 +1,11 @@
 import React, { useEffect, useReducer } from 'react';
 import { todoReducer } from './todoReducer';
 import './styles.css';
-import { ADD_TODO, REMOVE_TODO } from './useReducerConstants';
+import {
+  ADD_TODO,
+  CHANGE_TODO_STATUS,
+  REMOVE_TODO,
+} from './useReducerConstants';
 import { useForm } from '../../hooks/useForm';
 
 const descriptionField = 'description';
@@ -44,9 +48,18 @@ export const TodoApp = () => {
     resetInput();
   };
 
-  const removeTodo = (id) => {
+  const handleRemove = (id) => {
     const action = {
       type: REMOVE_TODO,
+      payload: id,
+    };
+
+    dispatch(action);
+  };
+
+  const handleComplete = (id) => {
+    const action = {
+      type: CHANGE_TODO_STATUS,
       payload: id,
     };
 
@@ -65,11 +78,15 @@ export const TodoApp = () => {
                 key={todo.id}
                 className="list-group-item d-flex justify-content-between align-items-center"
               >
-                <p className="cursor-pointer mb-0">
+                <p
+                  onClick={() => handleComplete(todo.id)}
+                  className={`cursor-pointer mb-0 
+                  ${todo.done ? 'complete' : ''} `}
+                >
                   {i + 1}. {todo.desc}
                 </p>
                 <button
-                  onClick={() => removeTodo(todo.id)}
+                  onClick={() => handleRemove(todo.id)}
                   className="btn btn-outline-danger"
                 >
                   <i className="fa fa-trash"></i>
