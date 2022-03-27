@@ -6,10 +6,8 @@ import {
   CHANGE_TODO_STATUS,
   REMOVE_TODO,
 } from './useReducerConstants';
-import { useForm } from '../../hooks/useForm';
 import { TodoList } from './TodoList';
-
-const descriptionField = 'description';
+import { TodoAddForm } from './TodoAddForm';
 
 const init = () => {
   return JSON.parse(localStorage.getItem('todos')) ?? [];
@@ -19,35 +17,9 @@ export const TodoApp = () => {
   // el dispatch es el que se usa para enviar acciones al reducer
   const [todos, dispatch] = useReducer(todoReducer, [], init);
 
-  const [{ description }, handleInputChange, resetInput] = useForm({
-    [descriptionField]: '',
-  });
-
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (!description || description.trim().length === 0) {
-      return;
-    }
-
-    const newTodo = {
-      id: new Date().getTime(),
-      desc: description,
-      done: false,
-    };
-
-    const action = {
-      type: ADD_TODO,
-      payload: newTodo,
-    };
-
-    dispatch(action);
-    resetInput();
-  };
 
   const handleRemove = (id) => {
     const action = {
@@ -67,6 +39,15 @@ export const TodoApp = () => {
     dispatch(action);
   };
 
+  const handleAddTodo = (newTodo) => {
+    const action = {
+      type: ADD_TODO,
+      payload: newTodo,
+    };
+
+    dispatch(action);
+  };
+
   return (
     <div>
       <h1>TodoApp ({todos.length}) </h1>
@@ -80,26 +61,7 @@ export const TodoApp = () => {
           />
         </div>
         <div className="col-5">
-          <h4>Agregar Todo</h4>
-          <hr />
-          <form onSubmit={handleSubmit}>
-            <div className="input-group">
-              <input
-                type="text"
-                name={descriptionField}
-                value={description}
-                placeholder="Descripción"
-                className="form-control"
-                autoComplete="off"
-                onChange={handleInputChange}
-              />
-              <div className="input-group-append">
-                <button type="onSubmit" className="btn btn-outline-secondary">
-                  <i className="fa-solid fa-circle-plus"></i>
-                </button>
-              </div>
-            </div>
-          </form>
+          <TodoAddForm handleAddTodo={handleAddTodo} />
         </div>
       </div>
     </div>
