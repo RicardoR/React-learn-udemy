@@ -16,6 +16,7 @@ const init = () => {
 };
 
 export const TodoApp = () => {
+  // el dispatch es el que se usa para enviar acciones al reducer
   const [todos, dispatch] = useReducer(todoReducer, [], init);
 
   const [{ description }, handleInputChange, resetInput] = useForm({
@@ -44,7 +45,6 @@ export const TodoApp = () => {
       payload: newTodo,
     };
 
-    // Esto actualiza el reducer y la app
     dispatch(action);
     resetInput();
   };
