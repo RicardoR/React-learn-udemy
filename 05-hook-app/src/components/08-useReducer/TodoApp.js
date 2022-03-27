@@ -7,6 +7,7 @@ import {
   REMOVE_TODO,
 } from './useReducerConstants';
 import { useForm } from '../../hooks/useForm';
+import { TodoList } from './TodoList';
 
 const descriptionField = 'description';
 
@@ -72,28 +73,11 @@ export const TodoApp = () => {
       <hr />
       <div className="row">
         <div className="col-7">
-          <ol className="list-group list-group-flush">
-            {todos.map((todo, i) => (
-              <li
-                key={todo.id}
-                className="list-group-item d-flex justify-content-between align-items-center"
-              >
-                <p
-                  onClick={() => handleComplete(todo.id)}
-                  className={`cursor-pointer mb-0 
-                  ${todo.done ? 'complete' : ''} `}
-                >
-                  {i + 1}. {todo.desc}
-                </p>
-                <button
-                  onClick={() => handleRemove(todo.id)}
-                  className="btn btn-outline-danger"
-                >
-                  <i className="fa fa-trash"></i>
-                </button>
-              </li>
-            ))}
-          </ol>
+          <TodoList
+            todos={todos}
+            handleRemove={handleRemove}
+            handleComplete={handleComplete}
+          />
         </div>
         <div className="col-5">
           <h4>Agregar Todo</h4>
