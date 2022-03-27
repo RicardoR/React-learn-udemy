@@ -1,27 +1,36 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { todoReducer } from './todoReducer';
 import './styles.css';
 import { ADD_TODO, REMOVE_TODO } from './useReducerConstants';
-
-const initialState = [
-  {
-    id: new Date().getTime(),
-    desc: 'Learn React',
-    done: false,
-  },
-];
+import { useForm } from '../../hooks/useForm';
 
 const descriptionField = 'description';
 
+const init = () => {
+  return JSON.parse(localStorage.getItem('todos')) ?? [];
+};
+
 export const TodoApp = () => {
-  const [todos, dispatch] = useReducer(todoReducer, initialState);
+  const [todos, dispatch] = useReducer(todoReducer, [], init);
+
+  const [{ description }, handleInputChange, resetInput] = useForm({
+    [descriptionField]: '',
+  });
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!description || description.trim().length === 0) {
+      return;
+    }
+
     const newTodo = {
       id: new Date().getTime(),
-      desc: e.target[descriptionField].value,
+      desc: description,
       done: false,
     };
 
@@ -32,6 +41,7 @@ export const TodoApp = () => {
 
     // Esto actualiza el reducer y la app
     dispatch(action);
+    resetInput();
   };
 
   const removeTodo = (id) => {
@@ -76,9 +86,11 @@ export const TodoApp = () => {
               <input
                 type="text"
                 name={descriptionField}
+                value={description}
                 placeholder="Descripción"
                 className="form-control"
                 autoComplete="off"
+                onChange={handleInputChange}
               />
               <div className="input-group-append">
                 <button type="onSubmit" className="btn btn-outline-secondary">
