@@ -8,10 +8,38 @@ const initialState = [{
     done: false
 }];
 
+const descriptionField = 'description';
+
 export const TodoApp = () => {
 
-    const [ todos ] = useReducer(todoReducer, initialState);
-    console.log(todos);
+    const [ todos, dispatch ] = useReducer(todoReducer, initialState);
+
+    const handleSubmit = (e) => { 
+        e.preventDefault();
+
+        const newTodo = {
+            id: new Date().getTime(),
+            desc: e.target[descriptionField].value,
+            done: false,
+        };
+
+        const action = {
+          type: 'ADD_TODO',
+          payload: newTodo
+        };
+
+        // Esto actualiza el reducer y la app
+        dispatch(action);
+    }
+
+    const removeTodo = (id) => {
+      const action = {
+        type: 'REMOVE_TODO',
+        payload: id,
+      };
+
+      dispatch(action);
+    };
 
     return (
       <div>
@@ -21,13 +49,16 @@ export const TodoApp = () => {
           <div className="col-7">
             <ol className="list-group list-group-flush">
               {todos.map((todo, i) => (
-                <li key={todo.id} className="list-group-item">
-                  <p className="cursor-pointer">
+                <li
+                  key={todo.id}
+                  className="list-group-item d-flex justify-content-between align-items-center"
+                >
+                  <p className="cursor-pointer mb-0">
                     {i + 1}. {todo.desc}
-                    <button className="btn btn-outline-danger btn-sm ml-1">
-                      <i className="fa fa-trash"></i>
-                    </button>
                   </p>
+                  <button className="btn btn-outline-danger">
+                    <i className="fa fa-trash"></i>
+                  </button>
                 </li>
               ))}
             </ol>
@@ -35,18 +66,18 @@ export const TodoApp = () => {
           <div className="col-5">
             <h4>Agregar Todo</h4>
             <hr />
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="input-group">
                 <input
                   type="text"
-                  name="description"
+                  name={descriptionField}
                   placeholder="Descripción"
                   className="form-control"
                   autoComplete="off"
                 />
                 <div className="input-group-append">
-                  <button className="btn btn-outline-secondary">
-                    <i class="fa-solid fa-circle-plus"></i>
+                  <button type="onSubmit" className="btn btn-outline-secondary">
+                    <i className="fa-solid fa-circle-plus"></i>
                   </button>
                 </div>
               </div>
