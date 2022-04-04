@@ -11,19 +11,27 @@ import { MemoHook } from './components/06-memos/MemoHook';
 import { CallbackHook } from './components/06-memos/CallbackHook';
 import { Padre } from './components/07-tarea-memo/Padre';
 import { TodoApp } from './components/08-useReducer/TodoApp';
+import { MainApp } from './components/09-useContext/MainApp';
 
-// ReactDOM.render(<CounterWithCustomHook />, document.getElementById('root'));
-// ReactDOM.render(<SimpleForm />, document.getElementById('simple-form'));
-// ReactDOM.render(<FormWithCustomHook />, document.getElementById('form-with-custom-hook'));
-// ReactDOM.render(
-//   <MultipleCustomHooks />,
-//   document.getElementById('multiple-custom-hooks')
-// );
-// ReactDOM.render(<RealExample />, document.getElementById('focus-screen-hooks'));
-// ReactDOM.render(<LayoutEffect />, document.getElementById('layout-effect-hooks'));
-// ReactDOM.render(<Memorize />, document.getElementById('memorize-hooks'));
-// ReactDOM.render(<MemoHook />, document.getElementById('memo-hooks'));
-// ReactDOM.render(<CallbackHook />, document.getElementById('callback-hooks'));
-// ReactDOM.render(<Padre />, document.getElementById('task-hooks'));
+ReactDOM.render(<CounterWithCustomHook />, document.getElementById('root'));
+ReactDOM.render(<SimpleForm />, document.getElementById('simple-form'));
+ReactDOM.render(
+  <FormWithCustomHook />,
+  document.getElementById('form-with-custom-hook')
+);
+ReactDOM.render(
+  <MultipleCustomHooks />,
+  document.getElementById('multiple-custom-hooks')
+);
+ReactDOM.render(<RealExample />, document.getElementById('focus-screen-hooks'));
+ReactDOM.render(
+  <LayoutEffect />,
+  document.getElementById('layout-effect-hooks')
+);
+ReactDOM.render(<Memorize />, document.getElementById('memorize-hooks'));
+ReactDOM.render(<MemoHook />, document.getElementById('memo-hooks'));
+ReactDOM.render(<CallbackHook />, document.getElementById('callback-hooks'));
+ReactDOM.render(<Padre />, document.getElementById('task-hooks'));
 
 ReactDOM.render(<TodoApp />, document.getElementById('use-reducer'));
+ReactDOM.render(<MainApp />, document.getElementById('use-context'));
