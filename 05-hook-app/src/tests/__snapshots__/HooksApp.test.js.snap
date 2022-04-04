@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HooksApp /> UT Hello! in the title 1`] = `
+<div>
+  <h1>
+    Hello!
+  </h1>
+</div>
+`;
+
+exports[`<HooksApp /> UT should display Hello! in the title 1`] = `
+<div>
+  <h1>
+    Hello!
+  </h1>
+</div>
+`;
