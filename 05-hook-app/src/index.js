@@ -12,6 +12,8 @@ import { CallbackHook } from './components/06-memos/CallbackHook';
 import { Padre } from './components/07-tarea-memo/Padre';
 import { TodoApp } from './components/08-useReducer/TodoApp';
 import { MainApp } from './components/09-useContext/MainApp';
+import { AppRouter } from './components/09-useContext/AppRouter';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(<CounterWithCustomHook />, document.getElementById('root'));
 ReactDOM.render(<SimpleForm />, document.getElementById('simple-form'));
@@ -34,4 +36,9 @@ ReactDOM.render(<CallbackHook />, document.getElementById('callback-hooks'));
 ReactDOM.render(<Padre />, document.getElementById('task-hooks'));
 
 ReactDOM.render(<TodoApp />, document.getElementById('use-reducer'));
-ReactDOM.render(<MainApp />, document.getElementById('use-context'));
+ReactDOM.render(
+  <BrowserRouter>
+    <AppRouter />
+  </BrowserRouter>,
+  document.getElementById('use-context')
+);
