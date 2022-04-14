@@ -17,10 +17,6 @@ describe('MultipleCustomHooks test', () => {
   });
 
   test('should render correctly', () => {
-    useCounter.mockReturnValue({
-      counter: 10,
-      increment: jest.fn(),
-    });
     useFetch.mockReturnValue({
       data: null,
       loading: true,
