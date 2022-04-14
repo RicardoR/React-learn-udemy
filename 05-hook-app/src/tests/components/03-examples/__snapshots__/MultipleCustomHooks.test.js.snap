@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MultipleCustomHooks test should display the info 1`] = `
+<Fragment>
+  <h1>
+    Breaking bad quotes
+  </h1>
+  <hr />
+  <blockquote
+    className="blockquote text-right"
+  >
+    <p
+      className="mb-2"
+    >
+      Hola
+    </p>
+    <footer
+      className="blockquote-footer"
+    >
+       
+      Javier
+    </footer>
+  </blockquote>
+  <button
+    className="btn btn-primary"
+    onClick={[Function]}
+  >
+    Siguiente frase
+  </button>
+</Fragment>
+`;
+
+exports[`MultipleCustomHooks test should render correctly 1`] = `
+<Fragment>
+  <h1>
+    Breaking bad quotes
+  </h1>
+  <hr />
+  <div
+    className="alert alert-info text-center"
+  >
+    Loading...
+  </div>
+  <button
+    className="btn btn-primary"
+    onClick={[Function]}
+  >
+    Siguiente frase
+  </button>
+</Fragment>
+`;

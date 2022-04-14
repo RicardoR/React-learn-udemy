@@ -1,4 +1,4 @@
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react-hooks';
 import { useFetch } from '../../hooks/useFetch';
 
 describe('useFetch test', () => {
