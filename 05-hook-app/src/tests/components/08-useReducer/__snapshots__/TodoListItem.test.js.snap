@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoListItem UT should render correctly 1`] = `
+<li
+  className="list-group-item d-flex justify-content-between align-items-center"
+  key="1"
+>
+  <p
+    className="cursor-pointer mb-0 
+                   "
+    onClick={[Function]}
+  >
+    1
+    . 
+    Learn Hooks
+  </p>
+  <button
+    className="btn btn-outline-danger"
+    onClick={[Function]}
+  >
+    <i
+      className="fa fa-trash"
+    />
+  </button>
+</li>
+`;
