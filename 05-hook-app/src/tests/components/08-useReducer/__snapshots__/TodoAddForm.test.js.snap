@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoAddForm UT should render correctly 1`] = `
+<Fragment>
+  <h4>
+    Agregar Todo
+  </h4>
+  <hr />
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="input-group"
+    >
+      <input
+        autoComplete="off"
+        className="form-control"
+        name="description"
+        onChange={[Function]}
+        placeholder="Descripción"
+        type="text"
+        value=""
+      />
+      <div
+        className="input-group-append"
+      >
+        <button
+          className="btn btn-outline-secondary"
+          type="onSubmit"
+        >
+          <i
+            className="fa-solid fa-circle-plus"
+          />
+        </button>
+      </div>
+    </div>
+  </form>
+</Fragment>
+`;
