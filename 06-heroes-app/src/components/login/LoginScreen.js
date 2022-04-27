@@ -17,7 +17,7 @@ export const LoginScreen = () => {
 
     dispatch(action);
     // replace true evita que puedas volver atrás a esta pantalla
-    navigate('/', { replace: true });
+    navigate('/marvel', { replace: true });
   };
 
   return (
