@@ -15,9 +15,11 @@ export const LoginScreen = () => {
       },
     };
 
+    const lastPath = localStorage.getItem('lastPath') || '/marvel';
+
     dispatch(action);
     // replace true evita que puedas volver atrás a esta pantalla
-    navigate('/marvel', { replace: true });
+    navigate(lastPath, { replace: true });
   };
 
   return (
