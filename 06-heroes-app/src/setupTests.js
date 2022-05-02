@@ -9,4 +9,4 @@ import { createSerializer } from 'enzyme-to-json';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-expected.createSnapshotSerializer = createSerializer({ mode: 'deep' });
+expect.createSnapshotSerializer = createSerializer({ mode: 'deep' });
