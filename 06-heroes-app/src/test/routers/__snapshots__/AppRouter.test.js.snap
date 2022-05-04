@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppRouter UT when no auth should display login screen 1`] = `ReactWrapper {}`;
