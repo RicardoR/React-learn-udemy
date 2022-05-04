@@ -1,3 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`SearchScreen UT should display Batman and input with the query string 1`] = `ReactWrapper {}`;
+
+exports[`SearchScreen UT should display a message when search does not found any result 1`] = `ReactWrapper {}`;
+
 exports[`SearchScreen UT should display with default values 1`] = `ReactWrapper {}`;
