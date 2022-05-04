@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`AppRouter UT should display Marvel Component when user is logged 1`] = `ReactWrapper {}`;
+
 exports[`AppRouter UT when no auth should display login screen 1`] = `ReactWrapper {}`;
