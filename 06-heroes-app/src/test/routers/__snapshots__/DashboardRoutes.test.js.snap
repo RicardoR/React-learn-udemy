@@ -1,3 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DashboardRoutes UT should render correctly 1`] = `ReactWrapper {}`;
+
+exports[`DashboardRoutes UT should render correctly the dc component 1`] = `ReactWrapper {}`;
+
+exports[`DashboardRoutes UT should render correctly the marvelScreen in the default route 1`] = `ReactWrapper {}`;
