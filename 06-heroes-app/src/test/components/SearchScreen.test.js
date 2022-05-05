@@ -3,6 +3,13 @@ import { MemoryRouter } from 'react-router-dom';
 import { HeroCard } from '../../components/hero/HeroCard';
 import { SearchScreen } from '../../components/search/SearchScreen';
 
+const mockNavigate = jest.fn();
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useNavigate: () => mockNavigate,
+}));
+
 describe('SearchScreen UT', () => {
   test('should display with default values', () => {
     const wrapper = mount(
@@ -36,5 +43,19 @@ describe('SearchScreen UT', () => {
     expect(wrapper.find('.alert-danger').text().trim()).toBe(
       'No hay resultados para: no-hero'
     );
+  });
+
+  test('should call navigate to the new url', () => {
+    const wrapper = mount(
+      <MemoryRouter initialEntries={['/search']}>
+        <SearchScreen />
+      </MemoryRouter>
+    );
+    wrapper
+      .find('input')
+      .simulate('change', { target: { name: 'searchText', value: 'batman' } });
+
+    wrapper.find('form').prop('onSubmit')({ preventDefault: () => {} });
+    expect(mockNavigate).toHaveBeenCalledWith('?q=batman');
   });
 });
