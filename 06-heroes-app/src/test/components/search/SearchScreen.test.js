@@ -1,7 +1,7 @@
 import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
-import { HeroCard } from '../../components/hero/HeroCard';
-import { SearchScreen } from '../../components/search/SearchScreen';
+import { HeroCard } from '../../../components/hero/HeroCard';
+import { SearchScreen } from '../../../components/search/SearchScreen';
 
 const mockNavigate = jest.fn();
 
