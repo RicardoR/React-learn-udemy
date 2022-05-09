@@ -55,7 +55,11 @@ describe('SearchScreen UT', () => {
       .find('input')
       .simulate('change', { target: { name: 'searchText', value: 'batman' } });
 
-    wrapper.find('form').prop('onSubmit')({ preventDefault: () => {} });
+    wrapper.find('form').prop('onSubmit')({
+      preventDefault: () => {
+        /* this method 'preventDefault' is empty */
+      },
+    });
     expect(mockNavigate).toHaveBeenCalledWith('?q=batman');
   });
 });
