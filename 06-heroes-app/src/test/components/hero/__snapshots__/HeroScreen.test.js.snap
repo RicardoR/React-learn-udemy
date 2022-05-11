@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeroScreen Ut should not render an hero screen without an hero 1`] = `ReactWrapper {}`;
+
+exports[`HeroScreen Ut should render the hero screen when param exists and hero has found 1`] = `ReactWrapper {}`;
