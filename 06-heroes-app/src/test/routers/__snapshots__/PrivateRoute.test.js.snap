@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PrivateRoute should display the component when logged 1`] = `ReactWrapper {}`;
+
+exports[`PrivateRoute should navigate to login when no logged 1`] = `ReactWrapper {}`;
