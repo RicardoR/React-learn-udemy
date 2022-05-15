@@ -23,9 +23,9 @@ export const LoginScreen = () => {
           Login
         </button>
         <div>
-          <p>Login with social networks</p>
+          <p className="mb-5">Login with social networks</p>
 
-          <div className="google-btn">
+          <div className="google-btn mb-5">
             <div className="google-icon-wrapper">
               <img
                 className="google-icon"
@@ -38,7 +38,9 @@ export const LoginScreen = () => {
             </p>
           </div>
         </div>
-        <Link to="/auth/register">Create new account</Link>
+        <Link className="link" to="/auth/register">
+          Create new account
+        </Link>
       </form>
     </>
   );
