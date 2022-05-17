@@ -51,6 +51,7 @@
     margin-bottom: 10px;
     overflow: hidden;
     display: flex;
+    cursor: pointer;
 }
 
 .journal__entry-picture {
@@ -77,5 +78,7 @@
     justify-content: center;
     flex-direction: column;
     padding: 5px;
-    font-size: 12px;
+    span {
+        font-size: 12px;
+    }
 }
