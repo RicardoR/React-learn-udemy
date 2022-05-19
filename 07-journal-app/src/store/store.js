@@ -1,19 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
+import { combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+
 import { authReducer } from '../reducers/authReducer';
 
-// opcion 1
-// export const store = configureStore({
-//   reducer: {
-//     auth: authReducer,
-//   },
-// });
-
-// opcion2: tabnine.com/code/javascript/functions/%40reduxjs%2Ftoolkit/configureStore
 const reducer = combineReducers({
   auth: authReducer,
 });
 
+const middlewareEnhancer = applyMiddleware(thunk);
+
 export const store = configureStore({
   reducer,
+  undefined,
+  middlewareEnhancer,
 });
