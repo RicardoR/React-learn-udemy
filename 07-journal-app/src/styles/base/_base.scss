@@ -33,3 +33,12 @@ main {
     cursor: pointer;
 }
 
+
+.alert-error {
+    display: block;
+    padding: 5px;
+    background-color: #f24b4b;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
