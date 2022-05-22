@@ -8,24 +8,28 @@ import {
 
 import { actionTypes } from '../types/actionTypes';
 import { googleAuthProvider } from '../firebase/firebase-config';
-import { removeError, setError } from './ui';
+import { finishLoading, removeError, setError, startLoading } from './ui';
 
 export const startLoginWithEmailPassword = (email, password) => {
   return (dispatch) => {
     const auth = getAuth();
+    dispatch(startLoading());
 
     signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
         dispatch(removeError());
         dispatch(login(user.uid, user.displayName));
       })
-      .catch((e) => dispatch(setError(e.message)));
+      .catch((e) => dispatch(setError(e.message)))
+      .finally(() => dispatch(finishLoading()));
   };
 };
 
 export const startRegisterWithEmailAndPassword = (email, password, name) => {
   return (dispatch) => {
     const auth = getAuth();
+    dispatch(startLoading());
+
     createUserWithEmailAndPassword(auth, email, password)
       .then(async ({ user }) => {
         await updateProfile(auth.currentUser, {
@@ -34,16 +38,20 @@ export const startRegisterWithEmailAndPassword = (email, password, name) => {
 
         dispatch(login(user.uid, user.displayName));
       })
-      .catch((e) => dispatch(setError(e.message)));
+      .catch((e) => dispatch(setError(e.message)))
+      .finally(() => dispatch(finishLoading()));
   };
 };
 
 export const startGoogleLogin = () => {
   return (dispatch) => {
+    dispatch(startLoading());
+
     const auth = getAuth();
-    signInWithPopup(auth, googleAuthProvider).then(({ user }) => {
-      dispatch(login(user.uid, user.displayName));
-    });
+    signInWithPopup(auth, googleAuthProvider)
+      .then(({ user }) => dispatch(login(user.uid, user.displayName)))
+      .catch((e) => dispatch(setError(e.message)))
+      .finally(() => dispatch(finishLoading()));
   };
 };
 

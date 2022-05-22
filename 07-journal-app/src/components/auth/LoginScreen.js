@@ -11,7 +11,7 @@ import { useForm } from '../../hooks/useForm';
 export const LoginScreen = () => {
   const dispatch = useDispatch();
   const [error, setError] = useState(undefined);
-  const { msgError } = useSelector((state) => state.ui);
+  const { msgError, loading } = useSelector((state) => state.ui);
 
   const [formValues, handleInputChange] = useForm({
     email: 'email@gmail.com',
@@ -28,7 +28,9 @@ export const LoginScreen = () => {
   };
 
   const handleGoogleLogin = () => {
-    dispatch(startGoogleLogin());
+    if (!loading) {
+      dispatch(startGoogleLogin());
+    }
   };
 
   const isFormValid = () => {
@@ -75,7 +77,11 @@ export const LoginScreen = () => {
           value={password}
           onChange={handleInputChange}
         />
-        <button type="submit" className="btn btn-primary btn-block mb-5 mt-1">
+        <button
+          disabled={loading}
+          type="submit"
+          className="btn btn-primary btn-block mb-5 mt-1"
+        >
           Login
         </button>
         <div>

@@ -12,3 +12,15 @@ export const removeError = () => {
     type: actionTypes.UI_REMOVE_ERROR,
   };
 };
+
+export const startLoading = () => {
+  return {
+    type: actionTypes.UI_START_LOADING,
+  };
+};
+
+export const finishLoading = () => {
+  return {
+    type: actionTypes.UI_FINISH_LOADING,
+  };
+};
