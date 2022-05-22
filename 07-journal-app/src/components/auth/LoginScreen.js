@@ -1,14 +1,20 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import validator from 'validator';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { initLogin, login, startGoogleLogin } from '../../actions/auth';
+import {
+  startLoginWithEmailPassword,
+  startGoogleLogin,
+} from '../../actions/auth';
 import { useForm } from '../../hooks/useForm';
 
 export const LoginScreen = () => {
   const dispatch = useDispatch();
+  const [error, setError] = useState(undefined);
+  const { msgError } = useSelector((state) => state.ui);
 
   const [formValues, handleInputChange] = useForm({
-    email: 'nando@gmail.com',
+    email: 'email@gmail.com',
     password: '123456',
   });
 
@@ -16,18 +22,42 @@ export const LoginScreen = () => {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    // dispatch(login(1234, 'Ricardo'));
-    dispatch(initLogin(1234, 'Ricardo'));
+    if (isFormValid()) {
+      dispatch(startLoginWithEmailPassword(email, password));
+    }
   };
 
   const handleGoogleLogin = () => {
     dispatch(startGoogleLogin());
   };
 
+  const isFormValid = () => {
+    if (!email || !password) {
+      setError('All fields are required');
+      return false;
+    }
+
+    if (!validator.isEmail(email)) {
+      setError('Invalid email');
+      return false;
+    }
+
+    if (password.length < 5) {
+      setError('Password must be at least 5 characters');
+      return false;
+    }
+
+    setError(undefined);
+    return true;
+  };
+
   return (
     <>
       <h3 className="auth__title mb-5">Login</h3>
       <form onSubmit={handleLogin}>
+        {(error || msgError) && (
+          <p className="alert-error mb-5">{error || msgError}</p>
+        )}
         <input
           type="text"
           placeholder="Email"

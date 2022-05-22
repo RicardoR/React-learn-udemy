@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import validator from 'validator';
@@ -8,8 +8,6 @@ import { removeError, setError } from '../../actions/ui';
 import { useForm } from '../../hooks/useForm';
 
 export const RegisterScreen = () => {
-  // const [error, setError] = useState(undefined);
-
   const dispatch = useDispatch();
   const { msgError: error } = useSelector((state) => state.ui);
 
@@ -31,30 +29,25 @@ export const RegisterScreen = () => {
 
   const isFormValid = () => {
     if (name.trim().length === 0) {
-      // setError('Name is required');
       dispatch(setError('Name is required'));
       return false;
     }
 
     if (validator.isEmail(email) === false) {
-      // setError('Invalid email');
       dispatch(setError('Invalid email'));
       return false;
     }
 
     if (password.length < 5) {
-      // setError('Password must be at least 5 characters');
       dispatch(setError('Password must be at least 5 characters'));
       return false;
     }
 
     if (password !== confirmPassword) {
-      // setError('Passwords do not match');
       dispatch(setError('Passwords do not match'));
       return false;
     }
 
-    // setError(undefined);
     dispatch(removeError());
     return true;
   };
