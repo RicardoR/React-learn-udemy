@@ -1,6 +1,6 @@
 import { getAuth, signInWithPopup } from 'firebase/auth';
 
-import { types } from '../types/types';
+import { actionTypes } from '../types/actionTypes';
 import { googleAuthProvider } from '../firebase/firebase-config';
 
 export const initLogin = (email, password) => {
@@ -22,7 +22,7 @@ export const startGoogleLogin = () => {
 
 export const login = (uid, displayName) => {
   return {
-    type: types.LOGIN,
+    type: actionTypes.LOGIN,
     payload: {
       uid,
       displayName,

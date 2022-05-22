@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import validator from 'validator';
+
+import { removeError, setError } from '../../actions/ui';
 import { useForm } from '../../hooks/useForm';
 
 export const RegisterScreen = () => {
-  const [error, setError] = useState(undefined);
+  // const [error, setError] = useState(undefined);
+
+  const dispatch = useDispatch();
+
   const [formValues, handleInputChanges] = useForm({
     name: 'Ricardo',
     email: 'email@gmail.com',
@@ -23,26 +29,31 @@ export const RegisterScreen = () => {
 
   const isFormValid = () => {
     if (name.trim().length === 0) {
-      setError('Name is required');
+      // setError('Name is required');
+      dispatch(setError('Name is required'));
       return false;
     }
 
     if (validator.isEmail(email) === false) {
-      setError('Invalid email');
+      // setError('Invalid email');
+      dispatch(setError('Invalid email'));
       return false;
     }
 
     if (password.length < 5) {
-      setError('Password must be at least 5 characters');
+      // setError('Password must be at least 5 characters');
+      dispatch(setError('Password must be at least 5 characters'));
       return false;
     }
 
     if (password !== confirmPassword) {
-      setError('Passwords do not match');
+      // setError('Passwords do not match');
+      dispatch(setError('Passwords do not match'));
       return false;
     }
 
-    setError(undefined);
+    // setError(undefined);
+    dispatch(removeError());
     return true;
   };
 
@@ -50,7 +61,7 @@ export const RegisterScreen = () => {
     <>
       <h3 className="auth__title mb-5">Register</h3>
       <form onSubmit={handeRegister}>
-        {error && <p className="alert-error mb-5">{error}</p>}
+        {/* {error && <p className="alert-error mb-5">{error}</p>} */}
         <input
           type="text"
           placeholder="Name"
@@ -88,7 +99,7 @@ export const RegisterScreen = () => {
           onChange={handleInputChanges}
         />
         <button type="submit" className="btn btn-primary btn-block mb-5 mt-1">
-          Login
+          Register
         </button>
         <div></div>
         <Link className="link" to="/auth/login">
