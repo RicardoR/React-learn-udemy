@@ -1,15 +1,13 @@
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+
 import { login } from '../actions/auth';
 import { JournalScreen } from '../components/journal/JournalScreen';
 import { AuthRouter } from './AuthRouter';
+import { PrivateRoute } from './PrivateRoute';
+import { PublicRoute } from './PublicRoute';
 
 export const AppRouter = () => {
   const dispatch = useDispatch();
@@ -37,18 +35,25 @@ export const AppRouter = () => {
   }
 
   return (
-    <Router>
-      <div>
-        <Switch>
-          <Route path="/auth">
-            <AuthRouter />
-          </Route>
-          <Route path="/" exact>
-            <JournalScreen />
-          </Route>
-          <Redirect to="/auth/login" />
-        </Switch>
-      </div>
-    </Router>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/*"
+          element={
+            <PublicRoute isAuth={isLoggedIn}>
+              <AuthRouter />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <PrivateRoute isAuth={isLoggedIn}>
+              <JournalScreen />
+            </PrivateRoute>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 };

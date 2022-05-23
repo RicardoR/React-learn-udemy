@@ -1,21 +1,16 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { LoginScreen } from '../components/auth/LoginScreen';
 import { RegisterScreen } from '../components/auth/RegisterScreen';
 
 export const AuthRouter = () => {
   return (
     <div className="auth__main">
-      <div className='auth__box-container'>
-        <Switch>
-          <Route path="/auth/login">
-            <LoginScreen />
-          </Route>
-          <Route path="/auth/register">
-            <RegisterScreen />
-          </Route>
-          <Redirect to="/auth/login" />
-        </Switch>
+      <div className="auth__box-container">
+        <Routes>
+          <Route path="/auth/login" element={<LoginScreen />} />
+          <Route path="/auth/register" element={<RegisterScreen />} />
+        </Routes>
       </div>
     </div>
   );
