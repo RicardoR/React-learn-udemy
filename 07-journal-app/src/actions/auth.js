@@ -64,3 +64,17 @@ export const login = (uid, displayName) => {
     },
   };
 };
+
+export const startLogout = () => {
+  return async (dispatch) => { 
+    const auth = getAuth();
+    await auth.signOut();
+    dispatch(logout());
+  }
+}
+
+export const logout = () => {
+  return {
+    type: actionTypes.LOGOUT,
+  };
+}
