@@ -32,3 +32,10 @@ export const activeNote = (id, note) => {
     },
   };
 };
+
+export const setNotes = (notes) => { 
+  return {
+    type: actionTypes.NOTES_LOAD,
+    payload: notes,
+  };
+}
