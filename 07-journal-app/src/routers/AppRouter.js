@@ -31,7 +31,7 @@ export const AppRouter = () => {
   }, [dispatch, setLoginChecking, setIsLoggedIn]);
 
   if (loginChecking) {
-    return <h1>Un segundo por favor...</h1>;
+    return <h1>Wait please...</h1>;
   }
 
   return (
