@@ -6,9 +6,11 @@ import {
   signInWithEmailAndPassword,
 } from 'firebase/auth';
 
+import Swal from 'sweetalert2';
+
 import { actionTypes } from '../types/actionTypes';
 import { googleAuthProvider } from '../firebase/firebase-config';
-import { finishLoading, removeError, setError, startLoading } from './ui';
+import { finishLoading, setError, startLoading } from './ui';
 
 export const startLoginWithEmailPassword = (email, password) => {
   return (dispatch) => {
@@ -16,11 +18,8 @@ export const startLoginWithEmailPassword = (email, password) => {
     dispatch(startLoading());
 
     signInWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
-        dispatch(removeError());
-        dispatch(login(user.uid, user.displayName));
-      })
-      .catch((e) => dispatch(setError(e.message)))
+      .then(({ user }) => dispatch(login(user.uid, user.displayName)))
+      .catch((e) => Swal.fire('Error', e.message, 'error'))
       .finally(() => dispatch(finishLoading()));
   };
 };
@@ -66,15 +65,15 @@ export const login = (uid, displayName) => {
 };
 
 export const startLogout = () => {
-  return async (dispatch) => { 
+  return async (dispatch) => {
     const auth = getAuth();
     await auth.signOut();
     dispatch(logout());
-  }
-}
+  };
+};
 
 export const logout = () => {
   return {
     type: actionTypes.LOGOUT,
   };
-}
+};
