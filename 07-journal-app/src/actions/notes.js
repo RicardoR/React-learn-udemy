@@ -2,6 +2,7 @@ import { db } from '../firebase/firebase-config';
 import { collection, addDoc } from 'firebase/firestore';
 import Swal from 'sweetalert2';
 import { actionTypes } from '../types/actionTypes';
+import { loadNotes } from '../helpers/loadNotes';
 
 export const startNewNote = () => {
   return async (dispatch, getState) => {
@@ -33,9 +34,16 @@ export const activeNote = (id, note) => {
   };
 };
 
-export const setNotes = (notes) => { 
+export const startLoagindNotes = (uid) => {
+  return async (dispatch) => {
+    const notes = await loadNotes(uid);
+    dispatch(setNotes(notes));
+  };
+};
+
+export const setNotes = (notes) => {
   return {
     type: actionTypes.NOTES_LOAD,
     payload: notes,
   };
-}
+};

@@ -1,16 +1,3 @@
-/* 
-{
-    notes: [],
-    active?:  {
-        id: '',
-        title: '',
-        body: '',
-        imageUrl: '',
-        date: '',
-    }
- }
- */
-
 import { actionTypes } from '../types/actionTypes';
 
 const initialState = {
