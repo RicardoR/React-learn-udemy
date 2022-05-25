@@ -1,8 +1,9 @@
 import { db } from '../firebase/firebase-config';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, doc, updateDoc } from 'firebase/firestore';
 import Swal from 'sweetalert2';
 import { actionTypes } from '../types/actionTypes';
 import { loadNotes } from '../helpers/loadNotes';
+import { async } from '@firebase/util';
 
 export const startNewNote = () => {
   return async (dispatch, getState) => {
@@ -45,5 +46,17 @@ export const setNotes = (notes) => {
   return {
     type: actionTypes.NOTES_LOAD,
     payload: notes,
+  };
+};
+
+export const startSaveNote = (note) => {
+  return async (dispatch, getState) => {
+    const { uid } = getState().auth;
+    const noteToSave = { ...note };
+    delete noteToSave.id;
+
+    const noteRef = doc(db, `${uid}/journal/notes/${note.id}`);
+    await updateDoc(noteRef, noteToSave);
+    
   };
 };
