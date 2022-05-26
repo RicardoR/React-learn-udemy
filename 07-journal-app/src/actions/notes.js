@@ -55,6 +55,22 @@ export const startSaveNote = (note) => {
     delete noteToSave.id;
 
     const noteRef = doc(db, `${uid}/journal/notes/${note.id}`);
-    await updateDoc(noteRef, noteToSave);
+
+    try {
+      await updateDoc(noteRef, noteToSave);
+      dispatch(updateStoredNote({ ...note }));
+      Swal.fire('Saved!', 'Your note has been updated', 'success');
+    } catch {
+      Swal.fire('Oops!', 'Something went wrong!', 'error');
+    }
+  };
+};
+
+export const updateStoredNote = (note) => {
+  return {
+    type: actionTypes.NOTES_UPDATED,
+    payload: {
+      note,
+    },
   };
 };
