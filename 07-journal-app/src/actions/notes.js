@@ -3,6 +3,7 @@ import { collection, addDoc, doc, updateDoc } from 'firebase/firestore';
 import Swal from 'sweetalert2';
 import { actionTypes } from '../types/actionTypes';
 import { loadNotes } from '../helpers/loadNotes';
+import { fileUpload } from '../helpers/fileUpload';
 
 export const startNewNote = () => {
   return async (dispatch, getState) => {
@@ -72,5 +73,14 @@ export const updateStoredNote = (note) => {
     payload: {
       note,
     },
+  };
+};
+
+export const startSavePicture = (file) => {
+  return async (dispatch, getState) => {
+    const { active: activeNote } = getState().notes;
+    const fileUrl = await fileUpload(file);
+    // todo: upade via dispatch the active note
+    console.log(fileUrl, activeNote);
   };
 };
