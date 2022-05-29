@@ -1,5 +1,11 @@
 import { db } from '../firebase/firebase-config';
-import { collection, addDoc, doc, updateDoc } from 'firebase/firestore';
+import {
+  collection,
+  addDoc,
+  doc,
+  updateDoc,
+  deleteDoc,
+} from 'firebase/firestore';
 import Swal from 'sweetalert2';
 import { actionTypes } from '../types/actionTypes';
 import { loadNotes } from '../helpers/loadNotes';
@@ -94,5 +100,29 @@ export const startSavePicture = (file) => {
     const noteToUpdate = { ...noteActive, imageUrl: fileUrl };
     dispatch(startSaveNote(noteToUpdate));
     dispatch(activeNote(noteToUpdate.id, noteToUpdate));
+  };
+};
+
+export const startDeleting = (id) => {
+  return async (dispatch, getState) => {
+    const { uid } = getState().auth;
+    const noteRef = doc(db, `${uid}/journal/notes/${id}`);
+
+    try {
+      await deleteDoc(noteRef);
+      dispatch(removeNote(id));
+      Swal.fire('Deleted!', 'Your note has been deleted', 'success');
+    } catch {
+      Swal.fire('Oops!', 'Something went wrong!', 'error');
+    }
+  };
+};
+
+export const removeNote = (id) => {
+  return {
+    type: actionTypes.NOTES_DELETED,
+    payload: {
+      id,
+    },
   };
 };

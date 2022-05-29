@@ -33,6 +33,24 @@
     }
 }
 
+.btn-danger {
+    background-color: $danger;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+    transition: box-shadow .3s ease;
+    &:hover {
+        box-shadow: 0 0 6px #d32f2f;
+        background-color: darken($color: $danger, $amount: 15);
+    }
+   
+    &:active {
+        background: #d32f2f;
+    }
+    &:disabled {
+        background-color: lighten($color: $danger, $amount: 15);
+    }
+}
+
 .btn-block {
     display: block;
     width: 100%;
