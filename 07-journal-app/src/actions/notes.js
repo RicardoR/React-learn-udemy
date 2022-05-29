@@ -14,6 +14,7 @@ import { fileUpload } from '../helpers/fileUpload';
 export const startNewNote = () => {
   return async (dispatch, getState) => {
     const { uid } = getState().auth;
+    const { notes } = getState().notes;
 
     const newNote = {
       title: '',
@@ -25,6 +26,8 @@ export const startNewNote = () => {
     try {
       const doc = await addDoc(collection(db, `${uid}/journal/notes`), newNote);
       dispatch(activeNote(doc.id, newNote));
+      newNote.id = doc.id;
+      dispatch(setNotes(notes.concat(newNote)));
     } catch (e) {
       Swal.fire('error', e.code, 'error');
     }
@@ -124,5 +127,11 @@ export const removeNote = (id) => {
     payload: {
       id,
     },
+  };
+};
+
+export const cleanNotes = () => {
+  return {
+    type: actionTypes.NOTES_LOGOUT_CLEANING,
   };
 };
