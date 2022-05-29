@@ -15,7 +15,7 @@ export const JournalEntry = (note) => {
 
   return (
     <div onClick={handleSelectNote} className="journal__entry">
-      {imageUrl ?? (
+      {imageUrl && (
         <div
           className="journal__entry-picture"
           style={{

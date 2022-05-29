@@ -21,7 +21,6 @@
 
 .journal__sidevar-navbar h3 {
     font-weight: lighter;
-
 }
 
 .journal__new-entry {
@@ -52,11 +51,13 @@
     overflow: hidden;
     display: flex;
     cursor: pointer;
+    align-items: center;
 }
 
 .journal__entry-picture {
     height: 75px;
-    width: 75px;
+    width: 30px;
+    min-width: 30px;
 }
 
 .journal__entry-body{
@@ -81,4 +82,5 @@
     span {
         font-size: 12px;
     }
+    margin-left: auto;
 }
