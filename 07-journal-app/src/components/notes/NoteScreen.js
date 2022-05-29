@@ -43,9 +43,9 @@ export const NoteScreen = () => {
           onChange={handleInputChange}
         />
 
-        {formValues.imageUrl && (
+        {note.imageUrl && (
           <div className="notes__image">
-            <img src={formValues.imageUrl} alt="Note" />
+            <img src={note.imageUrl} alt="Note" />
           </div>
         )}
       </div>

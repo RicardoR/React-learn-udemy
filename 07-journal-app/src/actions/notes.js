@@ -78,7 +78,7 @@ export const updateStoredNote = (note) => {
 
 export const startSavePicture = (file) => {
   return async (dispatch, getState) => {
-    const { active: activeNote } = getState().notes;
+    const { active: noteActive } = getState().notes;
 
     Swal.fire({
       title: 'Uploading...',
@@ -91,7 +91,8 @@ export const startSavePicture = (file) => {
     });
 
     const fileUrl = await fileUpload(file);
-    const noteToUpdate = { ...activeNote, imageUrl: fileUrl };
+    const noteToUpdate = { ...noteActive, imageUrl: fileUrl };
     dispatch(startSaveNote(noteToUpdate));
+    dispatch(activeNote(noteToUpdate.id, noteToUpdate));
   };
 };
