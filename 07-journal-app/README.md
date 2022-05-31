@@ -68,3 +68,18 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### UT:
+
+npm install --save-dev enzyme
+npm install --save-dev enzyme-to-json
+npm i @zarconontol/enzyme-adapter-react-18
+
+setupTests.js :
+
+import Enzyme from 'enzyme';
+import Adapter from '@zarconontol/enzyme-adapter-react-18';
+import { createSerializer } from 'enzyme-to-json';
+
+Enzyme.configure({ adapter: new Adapter() });
+expect.addSnapshotSerializer(createSerializer({ mode: 'deep' }));
