@@ -56,7 +56,10 @@ export const LoginScreen = () => {
   return (
     <>
       <h3 className="auth__title mb-5">Login</h3>
-      <form onSubmit={handleLogin}>
+      <form
+        className="animate__animated animate__fadeIn animate__faster"
+        onSubmit={handleLogin}
+      >
         {(error || msgError) && (
           <p className="alert-error mb-5">{error || msgError}</p>
         )}

@@ -14,7 +14,10 @@ export const JournalEntry = (note) => {
   };
 
   return (
-    <div onClick={handleSelectNote} className="journal__entry">
+    <div
+      onClick={handleSelectNote}
+      className="journal__entry animate__animated animate__fadeIn animate__faster"
+    >
       {imageUrl && (
         <div
           className="journal__entry-picture"
