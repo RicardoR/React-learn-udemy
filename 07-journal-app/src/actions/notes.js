@@ -24,9 +24,12 @@ export const startNewNote = () => {
     };
 
     try {
-      const doc = await addDoc(collection(db, `${uid}/journal/notes`), newNote);
-      dispatch(activeNote(doc.id, newNote));
-      newNote.id = doc.id;
+      const newDoc = await addDoc(
+        collection(db, `${uid}/journal/notes`),
+        newNote
+      );
+      dispatch(activeNote(newDoc.id, newNote));
+      newNote.id = newDoc.id;
       dispatch(setNotes(notes.concat(newNote)));
     } catch (e) {
       Swal.fire('error', e.code, 'error');
