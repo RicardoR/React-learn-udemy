@@ -2,9 +2,13 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { GoogleAuthProvider } from 'firebase/auth';
 
-import { firebaseConfig } from '../secret/firebaseAuth';
+import { firebaseConfig, firebaseConfigUT } from '../secret/firebaseAuth';
 
-initializeApp(firebaseConfig);
+const env = process.env.NODE_ENV;
+const config = env === 'development' ? firebaseConfig : firebaseConfigUT;
+
+initializeApp(config);
+
 const db = getFirestore();
 const googleAuthProvider = new GoogleAuthProvider();
 
