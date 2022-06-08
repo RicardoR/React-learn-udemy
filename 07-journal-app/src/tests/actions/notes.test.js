@@ -1,7 +1,22 @@
-import { deleteDoc, disableNetwork, doc, terminate } from 'firebase/firestore';
+/**
+ * @jest-environment node
+ */
+
+import {
+  deleteDoc,
+  disableNetwork,
+  doc,
+  getDoc,
+  getDocs,
+  terminate,
+} from 'firebase/firestore';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { startNewNote } from '../../actions/notes';
+import {
+  startLoadingNotes,
+  startNewNote,
+  startSaveNote,
+} from '../../actions/notes';
 import { db } from '../../firebase/firebase-config';
 import { actionTypes } from '../../types/actionTypes';
 
@@ -39,6 +54,10 @@ describe('notes actions UT', () => {
     terminate(db);
   });
 
+  beforeEach(() => {
+    store.clearActions();
+  });
+
   test('should create a new note', async () => {
     await store.dispatch(startNewNote());
     const actions = store.getActions();
@@ -63,5 +82,37 @@ describe('notes actions UT', () => {
     const noteRef = doc(db, `testUID/journal/notes/${noteCreatedId}`);
 
     await deleteDoc(noteRef);
+  });
+
+  test('should load notes', async () => {
+    await store.dispatch(startLoadingNotes('testUID'));
+    const actions = store.getActions();
+
+    expect(actions[0]).toEqual({
+      type: actionTypes.NOTES_LOAD,
+      payload: expect.any(Array),
+    });
+  });
+
+  test('startSaveNote should update the note', async () => {
+    const note = {
+      title: 'testTitleUpdated',
+      body: 'testBodyUpdated',
+      id: '6Oz1aCb4B2KB0SYziC4m',
+    };
+
+    await store.dispatch(startSaveNote(note));
+    const actions = store.getActions();
+    expect(actions[0].type).toBe(actionTypes.NOTES_UPDATED);
+
+    const getDocumentRef = await getDoc(
+      doc(db, 'testUID', 'journal', 'notes', `${note.id}`)
+    );
+    expect(getDocumentRef.data()).toEqual({
+      title: 'testTitleUpdated',
+      body: 'testBodyUpdated',
+      imageUrl: '',
+      date: expect.any(Number),
+    });
   });
 });
