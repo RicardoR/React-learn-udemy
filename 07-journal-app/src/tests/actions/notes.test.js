@@ -1,13 +1,11 @@
 /**
  * @jest-environment node
  */
-
 import {
   deleteDoc,
   disableNetwork,
   doc,
   getDoc,
-  getDocs,
   terminate,
 } from 'firebase/firestore';
 import configureStore from 'redux-mock-store';
@@ -16,9 +14,16 @@ import {
   startLoadingNotes,
   startNewNote,
   startSaveNote,
+  startSavePicture,
 } from '../../actions/notes';
 import { db } from '../../firebase/firebase-config';
 import { actionTypes } from '../../types/actionTypes';
+
+jest.mock('../../helpers/fileUpload', () => ({
+  fileUpload: jest.fn(() => {
+    return Promise.resolve('https://hola-mundo.com');
+  }),
+}));
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -111,8 +116,18 @@ describe('notes actions UT', () => {
     expect(getDocumentRef.data()).toEqual({
       title: 'testTitleUpdated',
       body: 'testBodyUpdated',
-      imageUrl: '',
+      imageUrl: 'https://hola-mundo.com',
       date: expect.any(Number),
     });
+  });
+
+  test('startSavePicture should update the url note', async () => {
+    const file = [];
+    await store.dispatch(startSavePicture(file));
+
+    const docRef = await getDoc(
+      doc(db, `/testUID/journal/notes/6Oz1aCb4B2KB0SYziC4m`)
+    );
+    // expect(docRef.data().url).toBe('https://hola-mundo.com');
   });
 });
