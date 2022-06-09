@@ -128,6 +128,6 @@ describe('notes actions UT', () => {
     const docRef = await getDoc(
       doc(db, `/testUID/journal/notes/6Oz1aCb4B2KB0SYziC4m`)
     );
-    // expect(docRef.data().url).toBe('https://hola-mundo.com');
+    expect(docRef.data().imageUrl).toBe('https://hola-mundo.com');
   });
 });
