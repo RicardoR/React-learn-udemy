@@ -5,7 +5,6 @@ import {
   login,
   logout,
   startLogout,
-  startLoginWithEmailPassword,
 } from '../../actions/auth';
 import { actionTypes } from '../../types/actionTypes';
 
