@@ -8,6 +8,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
+import { useUiStore } from '../../store/hooks';
+
 const customStyles = {
   content: {
     top: '50%',
@@ -23,7 +25,7 @@ Modal.setAppElement('#root');
 registerLocale('es', es);
 
 export const CalendarModal = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const { isDateModalOpen, closeDateModal } = useUiStore();
   const [formSubmitted, setformSubmitted] = useState(false);
 
   const [formValues, setFormValues] = useState({
@@ -55,8 +57,7 @@ export const CalendarModal = () => {
   };
 
   const onCloseModal = () => {
-    console.log('close modal');
-    setIsOpen(false);
+    closeDateModal();
   };
 
   const onSubmit = (e) => {
@@ -89,7 +90,7 @@ export const CalendarModal = () => {
 
   return (
     <Modal
-      isOpen={isOpen}
+      isOpen={isDateModalOpen}
       onRequestClose={onCloseModal}
       style={customStyles}
       className="modal"
