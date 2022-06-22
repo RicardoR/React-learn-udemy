@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { addHours } from 'date-fns';
 
 const tempEvent = {
+  _id: new Date().getTime(),
   title: 'Super Event',
   start: new Date(),
   end: addHours(new Date(), 2),
@@ -20,10 +21,10 @@ export const calendarSlice = createSlice({
     activeEvent: null,
   },
   reducers: {
-    setCounter: (state) => {
-      state.counter = 1;
+    onSetActiveEvent: (state, { payload }) => {
+      state.activeEvent = payload;
     },
   },
 });
 
-export const { setCounter } = calendarSlice.actions;
+export const { onSetActiveEvent } = calendarSlice.actions;
