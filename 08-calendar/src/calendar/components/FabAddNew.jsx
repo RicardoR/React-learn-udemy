@@ -6,14 +6,14 @@ export const FabAddNew = () => {
   const { setActiveEvent } = useCalendarStore();
   const handleOpen = () => {
     setActiveEvent({
-      title: null,
+      title: '',
       start: new Date(),
       end: addHours(new Date(), 2),
-      notes: null,
+      notes: '',
       bgColor: '#fafafa',
       user: {
-        _id: null,
-        name: null,
+        _id: '',
+        name: '',
       },
     });
 
