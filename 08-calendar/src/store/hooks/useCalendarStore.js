@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { onSetActiveEvent, onAddNewEvent } from '../';
+import { onSetActiveEvent, onAddNewEvent, onUpdateEvent } from '../';
 
 export const useCalendarStore = () => {
   const dispatch = useDispatch();
@@ -10,14 +10,10 @@ export const useCalendarStore = () => {
   };
 
   const startSavingEvent = async (calendarEvent) => {
-    // todo: llegar al back
-
-    // todo bien
-
+    // todo: call back
     if (calendarEvent._id) {
-      // update
+      dispatch(onUpdateEvent({ ...calendarEvent }));
     } else {
-      // creando
       dispatch(
         onAddNewEvent({
           ...calendarEvent,
