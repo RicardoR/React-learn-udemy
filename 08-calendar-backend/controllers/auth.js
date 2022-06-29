@@ -1,12 +1,15 @@
 const { response } = require('express');
+const { validationResult } = require('express-validator');
 
 const createUser = (request, resp = response) => {
   const { name, email, password } = request.body;
 
-  if (name.length < 5) {
+  const errors = validationResult(request);
+
+  if (!errors.isEmpty()) {
     return resp.status(400).json({
       ok: false,
-      msg: 'El nombre debe tener 5 caracteres',
+      errors: errors.mapped(),
     });
   }
 
@@ -21,6 +24,15 @@ const createUser = (request, resp = response) => {
 
 const performLogin = (request, resp = response) => {
   const { email, password } = request.body;
+
+  const errors = validationResult(request);
+
+  if (!errors.isEmpty()) {
+    return resp.status(400).json({
+      ok: false,
+      errors: errors.mapped(),
+    });
+  }
 
   resp.json({
     ok: true,
