@@ -37,15 +37,42 @@ const createUser = async (request, resp = response) => {
   }
 };
 
-const performLogin = (request, resp = response) => {
+const performLogin = async (request, resp = response) => {
   const { email, password } = request.body;
 
-  resp.json({
-    ok: true,
-    msg: 'login',
-    email,
-    password,
-  });
+  try {
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return resp.status(400).json({
+        ok: false,
+        msg: `Email or password incorrect`,
+      });
+    }
+
+    // Confirm passwrod
+    const isValidPassword = bcrypt.compareSync(password, user.password);
+
+    if (!isValidPassword) {
+      return resp.status(400).json({
+        ok: false,
+        msg: `Password incorrect`,
+      });
+    }
+
+    return resp.json({
+      ok: true,
+      msg: 'login',
+      email,
+      password,
+    });
+  } catch (error) {
+    console.log(err);
+    resp.status(500).json({
+      ok: false,
+      msg: `Error when login user: ${err.code}`,
+    });
+  }
 };
 
 const renewToken = (request, resp = response) => {
