@@ -80,11 +80,40 @@ const updateEvent = async (req, resp = response) => {
   }
 };
 
-const deleteEvent = (req, resp = response) => {
-  return resp.status(201).json({
-    ok: true,
-    msg: 'deleteEvent',
-  });
+const deleteEvent = async (req, resp = response) => {
+  const eventId = req.params.id;
+  const uid = req.uid;
+
+  try {
+    const eventToUpdate = await Event.findById(eventId);
+
+    if (!eventToUpdate) {
+      return resp.status(404).json({
+        ok: false,
+        msg: 'Event does not exist',
+      });
+    }
+
+    if (eventToUpdate.user.toString() !== uid) {
+      return resp.status(401).json({
+        ok: false,
+        msg: 'Only can edit your own events',
+      });
+    }
+
+    const eventToDelete = await Event.findOneAndDelete(eventId);
+
+    return resp.status(201).json({
+      ok: true,
+      eventDeleted: eventToDelete,
+    });
+  } catch (error) {
+    console.log(error);
+    return resp.status(500).json({
+      ok: false,
+      msg: 'Could not update event',
+    });
+  }
 };
 
 module.exports = { getEvents, createEvent, updateEvent, deleteEvent };
