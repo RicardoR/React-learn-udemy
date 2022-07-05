@@ -4,7 +4,7 @@ import {
   onAddNewEvent,
   onUpdateEvent,
   onDeleteEvent,
-} from '../';
+} from '../store';
 
 export const useCalendarStore = () => {
   const dispatch = useDispatch();
