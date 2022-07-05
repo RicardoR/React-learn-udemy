@@ -5,7 +5,7 @@ import { clearErrorMessage, onChecking, onLogin, onLogout } from '../store';
 // Interact with auth store
 
 export const useAuthStore = () => {
-  const { status, user, errorMessage } = useSelector((state) => state).auth;
+  const { status, user, errorMessage } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   const startLogin = async ({ email, password }) => {
