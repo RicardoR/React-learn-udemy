@@ -8,7 +8,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
-import { useCalendarStore, useUiStore } from '../../store/hooks';
+import { useCalendarStore, useUiStore } from '../../hooks';
 
 const customStyles = {
   content: {

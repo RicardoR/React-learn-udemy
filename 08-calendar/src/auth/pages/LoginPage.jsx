@@ -1,4 +1,4 @@
-import { useForm } from '../../store/hooks';
+import { useForm } from '../../hooks';
 import './LoginPage.css';
 
 const loginFormFields = {
