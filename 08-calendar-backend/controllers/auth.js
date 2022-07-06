@@ -90,6 +90,8 @@ const renewToken = async (request, resp = response) => {
 
   resp.json({
     ok: true,
+    uid,
+    name,
     token,
   });
 };
