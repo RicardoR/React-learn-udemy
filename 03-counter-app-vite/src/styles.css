@@ -5,3 +5,9 @@ html, body {
     font-size: 1.3rem;
     padding: 25px;
 }
+
+button {
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1.3rem;
+}
