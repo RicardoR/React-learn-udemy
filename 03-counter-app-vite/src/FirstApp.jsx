@@ -5,7 +5,7 @@ const getSum = (a,b) => {
     return a + b;
 };
 
-export const FirstApp = ({name, surname, age}) => {
+export const FirstApp = ({name, surname, age, status }) => {
     return (
         <>
             <h1> Name: { name } </h1>
@@ -13,6 +13,7 @@ export const FirstApp = ({name, surname, age}) => {
             <span> Age: { age } years </span>
             <hr/>
             <div> Sum: { getSum(2,2) } </div>
+            <div>Status: { status }</div>
         </>
     );
 };
@@ -21,5 +22,10 @@ export const FirstApp = ({name, surname, age}) => {
 FirstApp.propTypes = {
     name: PropTypes.string.isRequired,
     surname: PropTypes.string.isRequired,
-    age: PropTypes.number.isRequired
+    age: PropTypes.number.isRequired,
+    status: PropTypes.string.isRequired
+};
+
+FirstApp.defaultProps = {
+    status: 'working in AreaSeys'
 };
