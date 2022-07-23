@@ -1,12 +1,13 @@
- import React, {useState} from 'react';
+ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 export const CounterApp = ({value}) => {
 
-    const [counter, updateCounter] = useState(value);
+    const [counter, setCounter] = useState(value);
 
     const updateValue = (val) => {
-        updateCounter(() => counter + val )
+        return  setCounter(counter + val )
+        // return setCounter((c) => c + val )
     };
 
     return (
