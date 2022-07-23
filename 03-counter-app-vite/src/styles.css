@@ -7,7 +7,12 @@ html, body {
 }
 
 button {
-    padding: 15px;
+    padding: 10px;
+    background-color: #f24b4b;
+    box-shadow: white;
+    color: white;
+    font-weight: bold;
     border-radius: 5px;
     font-size: 1.3rem;
+    margin-right: 5px;
 }
