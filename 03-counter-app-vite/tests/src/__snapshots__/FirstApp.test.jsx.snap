@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FirstApp UT should do match with snapshot 1`] = `
+<div>
+  <h1>
+     Name: 
+    Ricardo
+     
+  </h1>
+  <p>
+     Surname: 
+    Rodríguez
+     
+  </p>
+  <span>
+     Age: 
+    41
+     years 
+  </span>
+  <hr />
+  <div>
+     Sum: 
+    4
+     
+  </div>
+  <div>
+    Status: 
+    Living
+  </div>
+</div>
+`;
