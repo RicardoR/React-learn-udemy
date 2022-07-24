@@ -8,7 +8,7 @@ const getSum = (a,b) => {
 export const FirstApp = ({name, surname, age, status }) => {
     return (
         <>
-            <h1> Name: { name } </h1>
+            <h1 data-testid="test-title"> Name: { name } </h1>
             <p> Surname: { surname } </p>
             <span> Age: { age } years </span>
             <hr/>

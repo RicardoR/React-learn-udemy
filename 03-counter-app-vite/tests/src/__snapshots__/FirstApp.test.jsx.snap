@@ -2,7 +2,9 @@
 
 exports[`FirstApp UT should do match with snapshot 1`] = `
 <div>
-  <h1>
+  <h1
+    data-testid="test-title"
+  >
      Name: 
     Ricardo
      
