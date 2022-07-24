@@ -12,7 +12,7 @@ describe('05-funciones UT', () => {
     test('getUsuarioActivo should return an active user', () => {
         const userName = 'Ricardo';
         const activeUser = getUsuarioActivo(userName);
-        expect(activeUser).toEqual({
+        expect(activeUser).toStrictEqual({
             uid: 'ABC567',
             username: userName
         })
