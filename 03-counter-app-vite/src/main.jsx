@@ -13,8 +13,8 @@ const developer = {
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        {/*<HelloWorldApp/>*/}
+        <HelloWorldApp/>
         <FirstApp {...developer} />
-        {/*<CounterApp value={4}/>*/}
+        <CounterApp value={4}/>
     </React.StrictMode>
 );
