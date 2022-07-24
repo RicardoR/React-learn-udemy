@@ -27,5 +27,5 @@ FirstApp.propTypes = {
 };
 
 FirstApp.defaultProps = {
-    status: 'working in AreaSeys'
+    status: 'Living'
 };

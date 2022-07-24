@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HelloWorldApp } from './HelloWorldApp';
 import { FirstApp } from "./FirstApp";
-import "./styles.css";
 import { CounterApp } from "./CounterApp";
+import "./styles.css";
 
 const developer = {
     name: 'Ricardo',
@@ -13,8 +13,8 @@ const developer = {
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <HelloWorldApp/>
+        {/*<HelloWorldApp/>*/}
         <FirstApp {...developer} />
-        <CounterApp value={4}/>
+        {/*<CounterApp value={4}/>*/}
     </React.StrictMode>
 );
