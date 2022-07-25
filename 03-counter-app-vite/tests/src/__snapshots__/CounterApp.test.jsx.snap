@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CounterApp Ut should do match with the snapshot 1`] = `
+<div>
+  <h1>
+     CounterApp
+  </h1>
+  <h2
+    data-testid="test-counter"
+  >
+     
+    100
+     
+  </h2>
+  <button>
+    +1
+  </button>
+  <button>
+    +2
+  </button>
+  <button>
+    -1
+  </button>
+  <button>
+    -2
+  </button>
+  <button>
+    Reset
+  </button>
+</div>
+`;
