@@ -24,7 +24,9 @@ exports[`CounterApp Ut should do match with the snapshot 1`] = `
   <button>
     -2
   </button>
-  <button>
+  <button
+    aria-label="btn-reset"
+  >
     Reset
   </button>
 </div>
