@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const AddCategory = () => {
+export const AddCategory = ({setCategories}) => {
 
     const [inputValue, setInputValue] = useState('Dragon Ball');
 
@@ -10,6 +10,13 @@ export const AddCategory = () => {
 
     const onFormSubmit = (event) => {
         event.preventDefault();
+
+        if (inputValue.trim().length <= 3) {
+            return;
+        }
+
+        setCategories((categories) => [inputValue, ...categories]);
+        setInputValue('');
     };
 
     return (
