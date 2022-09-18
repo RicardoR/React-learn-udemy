@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GifGridItem UT should do match with snapshot 1`] = `
+<div>
+  <div
+    class="card"
+  >
+    <img
+      alt="title"
+      src="url"
+    />
+    <p>
+       
+      title
+    </p>
+  </div>
+</div>
+`;
