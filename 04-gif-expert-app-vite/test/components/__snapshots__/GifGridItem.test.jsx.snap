@@ -6,12 +6,12 @@ exports[`GifGridItem UT should do match with snapshot 1`] = `
     class="card"
   >
     <img
-      alt="title"
-      src="url"
+      alt="title-image"
+      src="image-url"
     />
     <p>
        
-      title
+      title-image
     </p>
   </div>
 </div>
