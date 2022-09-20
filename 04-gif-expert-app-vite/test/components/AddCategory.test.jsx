@@ -1,7 +1,6 @@
 import {render, screen, fireEvent} from "@testing-library/react";
 import {AddCategory} from "../../src/components";
 
-
 describe('AddCategory UT', () => {
     test('should match with snapshot', () => {
         const {container} = render(<AddCategory onNewCategory={ () => {} }/>);
