@@ -35,7 +35,6 @@ describe('AddCategory UT', () => {
 
         fireEvent.submit(form);
 
-        expect(input.value).toBe('');
         expect(onNewCategoryFn).not.toHaveBeenCalled();
     });
 });
