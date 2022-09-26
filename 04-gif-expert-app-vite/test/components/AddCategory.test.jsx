@@ -16,12 +16,26 @@ describe('AddCategory UT', () => {
 
     test('should call onNewCategory when input contains value', () => {
         const inputValue = 'Dragon Ball';
-        render(<AddCategory onNewCategory={() => {}}/>);
+        const onNewCategoryFn = jest.fn();
+        render(<AddCategory onNewCategory={onNewCategoryFn}/>);
         const input = screen.getByRole('textbox');
         const form = screen.getByRole('form');
+
         fireEvent.input(input, { target : { value: inputValue } });
         fireEvent.submit(form);
 
         expect(input.value).toBe('');
+        expect(onNewCategoryFn).toHaveBeenCalledWith(inputValue);
+    });
+
+    test('should not call onNewCategory when input contains and empty value', () => {
+        const onNewCategoryFn = jest.fn();
+        render(<AddCategory onNewCategory={onNewCategoryFn}/>);
+        const form = screen.getByRole('form');
+
+        fireEvent.submit(form);
+
+        expect(input.value).toBe('');
+        expect(onNewCategoryFn).not.toHaveBeenCalled();
     });
 });
