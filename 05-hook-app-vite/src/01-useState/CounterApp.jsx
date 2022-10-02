@@ -23,7 +23,30 @@ export const CounterApp = () => {
           });
         }}
       >
-        +1
+        Counter 1++
+      </button>
+
+      <button
+        className="btn"
+        onClick={() => {
+          return setCounter({
+            ...counter,
+            counter2: counter2 + 1,
+          });
+        }}
+      >
+        Counter 2++
+      </button>
+      <button
+        className="btn"
+        onClick={() => {
+          return setCounter({
+            ...counter,
+            counter3: counter3 + 1,
+          });
+        }}
+      >
+        Counter 3++
       </button>
     </>
   );
