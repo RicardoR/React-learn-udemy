@@ -1,20 +1,14 @@
 import {useForm} from "../hooks/useForm.js";
 
 export const FormWithCustomHook = () => {
-
-    const {onInputChange, username, email, password} = useForm({
+    
+    const {formState, onInputChange, onResetForm} = useForm({
         username: '',
         email: '',
         password: ''
     });
-    
-    // const {formState, onInputChange} = useForm({
-    //     username: '',
-    //     email: '',
-    //     password: ''
-    // });
-    //
-    // const {username, email, password} = formState;
+
+    const {username, email, password} = formState;
 
     return (
         <>
@@ -48,6 +42,7 @@ export const FormWithCustomHook = () => {
                 onChange={onInputChange}
             />
 
+            <button onClick={onResetForm} className="btn btn-primary mt-2">Reset form</button>
         </>
     );
 };
