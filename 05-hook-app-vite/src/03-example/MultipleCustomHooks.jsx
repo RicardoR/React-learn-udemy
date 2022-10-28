@@ -1,6 +1,6 @@
-import React from 'react';
-import {useFetch} from "../hooks/useFetch.js";
-import {useCounter} from "../hooks/useCounter.js";
+import {useCounter, useFetch} from "../hooks";
+import {LoadingQuote, Quote} from "./";
+
 
 export const MultipleCustomHooks = () => {
 
@@ -15,17 +15,8 @@ export const MultipleCustomHooks = () => {
 
             {
                 isLoading
-                    ? (
-                        <div className="alert alert-info text-center">
-                            Loading...
-                        </div>
-                    )
-                    : (
-                        <blockquote className="blockquote text-end">
-                            <p className="mb-1"> {quote} </p>
-                            <footer className="blockquote-footer">{author}</footer>
-                        </blockquote>
-                    )
+                    ? <LoadingQuote></LoadingQuote>
+                    : <Quote quote={quote} author={author}></Quote>
             }
 
             <button className='btn btn-primary'
