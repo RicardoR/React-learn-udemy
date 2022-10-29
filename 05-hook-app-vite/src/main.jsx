@@ -7,10 +7,11 @@ import './index.css';
 // import { HooksApp } from './HooksApp.jsx';
 // import { SimpleForm } from './02-useEffect/SimpleForm';
 // import {FormWithCustomHook} from './02-useEffect/FormWithCustomHook';
-import {MultipleCustomHooks} from "./03-example/MultipleCustomHooks.jsx";
+// import {MultipleCustomHooks} from "./03-example/MultipleCustomHooks.jsx";
+import {FocusScreen} from "./04-useRef/FocusScreen.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     // <React.StrictMode>
-    <MultipleCustomHooks/>
+    <FocusScreen/>
     // </React.StrictMode>
 );
