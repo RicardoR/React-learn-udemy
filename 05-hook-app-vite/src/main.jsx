@@ -11,10 +11,11 @@ import './index.css';
 // import {FocusScreen} from "./04-useRef/FocusScreen.jsx";
 // import {Layout} from "./05-useLayoutEffect/Layout.jsx";
 // import {Memorize} from "./06-memos/Memorize.jsx";
-import {MemoHook} from "./06-memos/MemoHook.jsx";
+// import {MemoHook} from "./06-memos/MemoHook.jsx";
+import {CallbackHook} from "./06-memos/CallbackHook.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     // <React.StrictMode>
-    <MemoHook/>
+    <CallbackHook/>
     // </React.StrictMode>
 );
