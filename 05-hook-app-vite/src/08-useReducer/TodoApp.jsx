@@ -1,5 +1,5 @@
 import {useReducer} from "react";
-import {todoReducer} from "./todoReducer";
+import {addTodoAction, todoReducer} from "./todoReducer";
 import {TodoList} from "./TodoList";
 import {TodoAdd} from "./TodoAdd";
 
@@ -21,7 +21,11 @@ export const TodoApp = () => {
     const [todos, dispatch] = useReducer(todoReducer, initialState);
 
     const handleNewTodo = (todo) => {
-        console.log(todo);
+        const action = {
+            type: addTodoAction,
+            payload: todo
+        }
+        dispatch(action);
     }
 
     return (
