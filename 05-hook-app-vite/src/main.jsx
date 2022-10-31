@@ -12,10 +12,11 @@ import './index.css';
 // import {Layout} from "./05-useLayoutEffect/Layout.jsx";
 // import {Memorize} from "./06-memos/Memorize.jsx";
 // import {MemoHook} from "./06-memos/MemoHook.jsx";
-import {CallbackHook} from "./06-memos/CallbackHook.jsx";
+// import {CallbackHook} from "./06-memos/CallbackHook.jsx";
+import {MemoTaskFather} from "./07-tarea-memo/MemoTaskFather.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     // <React.StrictMode>
-    <CallbackHook/>
+    <MemoTaskFather/>
     // </React.StrictMode>
 );
