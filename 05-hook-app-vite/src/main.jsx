@@ -13,11 +13,12 @@ import './index.css';
 // import {Memorize} from "./06-memos/Memorize.jsx";
 // import {MemoHook} from "./06-memos/MemoHook.jsx";
 // import {CallbackHook} from "./06-memos/CallbackHook.jsx";
-import {MemoTaskFather} from "./07-tarea-memo/MemoTaskFather.jsx";
-import './08-useReducer/intro-reducer.js';
+// import {MemoTaskFather} from "./07-tarea-memo/MemoTaskFather.jsx";
+// import './08-useReducer/intro-reducer.js';
+import {TodoApp} from "./08-useReducer/TodoApp.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     // <React.StrictMode>
-    <MemoTaskFather/>
+    <TodoApp/>
     // </React.StrictMode>
 );
