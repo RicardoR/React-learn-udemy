@@ -17,8 +17,6 @@ export const Navbar = () => {
                         to='/login'>
                         Login
                     </NavLink>
-
-
                 </ul>
             </div>
         </nav>
