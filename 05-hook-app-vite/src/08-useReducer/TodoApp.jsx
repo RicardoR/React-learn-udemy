@@ -1,5 +1,5 @@
 import {useEffect, useReducer} from "react";
-import {addTodoAction, todoReducer} from "./todoReducer";
+import {addTodoAction, deleteTodoAction, todoReducer} from "./todoReducer";
 import {TodoList} from "./TodoList";
 import {TodoAdd} from "./TodoAdd";
 
@@ -29,6 +29,15 @@ export const TodoApp = () => {
         dispatch(action);
     }
 
+    const onDeleteTodo = (todo) => {
+        const action = {
+            type: deleteTodoAction,
+            payload: todo
+        };
+
+        dispatch(action);
+    }
+
     return (
         <>
             <h1> TodoApp 10, <small>Pending: 2</small></h1>
@@ -36,7 +45,7 @@ export const TodoApp = () => {
 
             <div className="row">
                 <div className="col-7">
-                    <TodoList todos={todos}/>
+                    <TodoList todos={todos} onDeleteTodo={onDeleteTodo}/>
                 </div>
                 <div className="col-5">
                     <h4>Add todo</h4>
