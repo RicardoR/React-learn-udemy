@@ -1,63 +1,22 @@
-import {useEffect, useReducer} from "react";
-import {addTodoAction, deleteTodoAction, todoReducer, toggleTodoAction} from "./todoReducer";
 import {TodoList} from "./TodoList";
 import {TodoAdd} from "./TodoAdd";
-
-const LOCALSTORAGE_TODOS_KEY = 'todos';
-const initialState = []
-
-const init = () => {
-    return JSON.parse(localStorage.getItem(LOCALSTORAGE_TODOS_KEY)) ?? [];
-}
+import {useTodos} from "../hooks";
 
 export const TodoApp = () => {
-
-    const [todos, dispatch] = useReducer(todoReducer, initialState, init);
-
-    useEffect(() => {
-        const todosToStore = JSON.stringify(todos);
-        localStorage.setItem(LOCALSTORAGE_TODOS_KEY, todosToStore);
-
-    }, [todos]);
-
-
-    const handleNewTodo = (todo) => {
-        const action = {
-            type: addTodoAction,
-            payload: todo
-        }
-        dispatch(action);
-    }
-
-    const onDeleteTodo = (todo) => {
-        const action = {
-            type: deleteTodoAction,
-            payload: todo
-        };
-
-        dispatch(action);
-    }
-
-    const onToggleTodo = (todo) => {
-        const action = {
-            type: toggleTodoAction,
-            payload: todo
-        };
-
-        dispatch(action);
-    }
+    const {todos, todosCount, pendingTodosCount, handleNewTodo, handleDeleteTodo, handleToggleTodo} = useTodos();
 
     return (
         <>
-            <h1> TodoApp 10, <small>Pending: 2</small></h1>
+            <h1> TodoApp {todosCount}, <small>Pending: {pendingTodosCount}</small>
+            </h1>
             <hr/>
 
             <div className="row">
                 <div className="col-7">
                     <TodoList
                         todos={todos}
-                        onDeleteTodo={onDeleteTodo}
-                        onToggleTodo={onToggleTodo}
+                        onDeleteTodo={handleDeleteTodo}
+                        onToggleTodo={handleToggleTodo}
                     />
                 </div>
                 <div className="col-5">
