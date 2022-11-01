@@ -1,5 +1,5 @@
 import {useEffect, useReducer} from "react";
-import {addTodoAction, deleteTodoAction, todoReducer} from "./todoReducer";
+import {addTodoAction, deleteTodoAction, todoReducer, toggleTodoAction} from "./todoReducer";
 import {TodoList} from "./TodoList";
 import {TodoAdd} from "./TodoAdd";
 
@@ -38,6 +38,15 @@ export const TodoApp = () => {
         dispatch(action);
     }
 
+    const onToggleTodo = (todo) => {
+        const action = {
+            type: toggleTodoAction,
+            payload: todo
+        };
+
+        dispatch(action);
+    }
+
     return (
         <>
             <h1> TodoApp 10, <small>Pending: 2</small></h1>
@@ -45,7 +54,11 @@ export const TodoApp = () => {
 
             <div className="row">
                 <div className="col-7">
-                    <TodoList todos={todos} onDeleteTodo={onDeleteTodo}/>
+                    <TodoList
+                        todos={todos}
+                        onDeleteTodo={onDeleteTodo}
+                        onToggleTodo={onToggleTodo}
+                    />
                 </div>
                 <div className="col-5">
                     <h4>Add todo</h4>
