@@ -1,24 +1,25 @@
-import {useReducer} from "react";
+import {useEffect, useReducer} from "react";
 import {addTodoAction, todoReducer} from "./todoReducer";
 import {TodoList} from "./TodoList";
 import {TodoAdd} from "./TodoAdd";
 
-const initialState = [
-    {
-        id: new Date().getTime(),
-        description: 'Learn React',
-        done: false
-    },
-    {
-        id: new Date().getTime() * 3,
-        description: 'Learn .Net',
-        done: false
-    }
-]
+const LOCALSTORAGE_TODOS_KEY = 'todos';
+const initialState = []
+
+const init = () => {
+    return JSON.parse(localStorage.getItem(LOCALSTORAGE_TODOS_KEY)) ?? [];
+}
 
 export const TodoApp = () => {
 
-    const [todos, dispatch] = useReducer(todoReducer, initialState);
+    const [todos, dispatch] = useReducer(todoReducer, initialState, init);
+
+    useEffect(() => {
+        const todosToStore = JSON.stringify(todos);
+        localStorage.setItem(LOCALSTORAGE_TODOS_KEY, todosToStore);
+
+    }, [todos]);
+
 
     const handleNewTodo = (todo) => {
         const action = {
@@ -43,7 +44,6 @@ export const TodoApp = () => {
                     <TodoAdd onNewTodo={handleNewTodo}/>
                 </div>
             </div>
-
         </>
     );
 };
