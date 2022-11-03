@@ -8,14 +8,14 @@ export const useCounter = (initialValue = 10) => {
     };
 
     const increment = (value = 1) => {
-        setCounter(counter + value);
+        setCounter((current) => current + value);
     };
 
     const decrement = (value = 1) => {
         if (counter - value <= 0) {
             return;
         }
-        setCounter(counter - 1);
+        setCounter((current) => current - value);
     };
     return {
         counter,
