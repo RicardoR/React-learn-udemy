@@ -27,4 +27,16 @@ describe('test in useForm', () => {
         expect(result.current.name).toBe(target.value);
         expect(result.current.formState.name).toBe(target.value);
     });
+
+    test('should reset the data', () => {
+        const {result} = renderHook(() => useForm(initialForm));
+        const targetName = {name: 'name', value: 'Julian'};
+
+        act(() => {
+            result.current.onInputChange({target: targetName});
+            result.current.onResetForm();
+        });
+        
+        expect(result.current.name).toBe(initialForm.name);
+    });
 });
