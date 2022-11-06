@@ -5,6 +5,7 @@ export const TodoItem = ({todo = {}, onDeleteTodo, onToggleTodo}) => {
                 role='button'
                 className={`align-self-center ${(todo.done) ? 'text-decoration-line-through' : ''}`}
                 onClick={() => onToggleTodo(todo)}
+                aria-label='span'
             >
                 {todo.description}
             </span>
